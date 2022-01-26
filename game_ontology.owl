@@ -8,16 +8,14 @@
 
 <owl:Ontology rdf:about="http://test.org/game_ontology.owl"/>
 
+<owl:ObjectProperty rdf:about="#played_on">
+  <rdfs:domain rdf:resource="#Game"/>
+  <rdfs:range rdf:resource="#Field"/>
+</owl:ObjectProperty>
+
 <owl:ObjectProperty rdf:about="#require">
   <rdfs:domain rdf:resource="#Game"/>
   <rdfs:range rdf:resource="#Equipment"/>
-  <owl:inverseOf rdf:resource="#required_by"/>
-</owl:ObjectProperty>
-
-<owl:ObjectProperty rdf:about="#required_by">
-  <rdfs:domain rdf:resource="#Equipment"/>
-  <rdfs:range rdf:resource="#Game"/>
-  <owl:inverseOf rdf:resource="#require"/>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#watch">
@@ -32,40 +30,94 @@
   <owl:inverseOf rdf:resource="#watch"/>
 </owl:ObjectProperty>
 
-<owl:ObjectProperty rdf:about="#played_on">
-  <rdfs:domain rdf:resource="#Game"/>
-  <rdfs:range rdf:resource="#Field"/>
-</owl:ObjectProperty>
-
-<owl:ObjectProperty rdf:about="#has_greater_value_than">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-  <rdfs:domain rdf:resource="#Card"/>
-  <rdfs:range rdf:resource="#Card"/>
-  <owl:inverseOf rdf:resource="#has_less_value_than"/>
-</owl:ObjectProperty>
-
-<owl:ObjectProperty rdf:about="#has_less_value_than">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-  <rdfs:domain rdf:resource="#Card"/>
-  <rdfs:range rdf:resource="#Card"/>
-  <owl:inverseOf rdf:resource="#has_greater_value_than"/>
-</owl:ObjectProperty>
-
 <owl:ObjectProperty rdf:about="#has_interest_in">
   <rdfs:domain rdf:resource="#Spectator"/>
   <rdfs:range rdf:resource="#Game"/>
 </owl:ObjectProperty>
 
-<owl:DatatypeProperty rdf:about="#has_players_number">
+<owl:ObjectProperty rdf:about="#has_suit">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#PlayingCard"/>
+  <rdfs:range rdf:resource="#CardSuit"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_value">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#PlayingCard"/>
+  <rdfs:range rdf:resource="#CardValue"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_greater_value_than">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  <rdfs:domain rdf:resource="#PlayingCard"/>
+  <rdfs:range rdf:resource="#PlayingCard"/>
+  <owl:inverseOf rdf:resource="#has_lower_value_than"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_greater_number_than">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  <rdfs:domain rdf:resource="#Dice"/>
+  <rdfs:range rdf:resource="#Dice"/>
+  <owl:inverseOf rdf:resource="#has_lower_number_than"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_favourite">
+  <rdfs:domain rdf:resource="#Fan"/>
+  <rdfs:range rdf:resource="#Player"/>
+  <owl:inverseOf rdf:resource="#has_fans"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_fans">
+  <rdfs:domain rdf:resource="#Player"/>
+  <rdfs:range rdf:resource="#Fan"/>
+  <owl:inverseOf rdf:resource="#has_favourite"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#plays">
+  <rdfs:domain rdf:resource="#Player"/>
+  <rdfs:range rdf:resource="#Game"/>
+  <owl:inverseOf rdf:resource="#is_played_by"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#is_played_by">
+  <rdfs:domain rdf:resource="#Game"/>
+  <rdfs:range rdf:resource="#Player"/>
+  <owl:inverseOf rdf:resource="#plays"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#need">
+  <rdfs:subPropertyOf rdf:resource="#require"/>
+  <rdfs:domain rdf:resource="#BoardGame"/>
+  <rdfs:range>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#MagicCard"/>
+        <rdf:Description rdf:about="#Dice"/>
+        <rdf:Description rdf:about="#Pawn"/>
+        <rdf:Description rdf:about="#Paper"/>
+        <rdf:Description rdf:about="#Pencil"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:range>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_lower_number_than">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  <rdfs:domain rdf:resource="#Dice"/>
+  <rdfs:range rdf:resource="#Dice"/>
+  <owl:inverseOf rdf:resource="#has_greater_number_than"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#has_lower_value_than">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  <rdfs:domain rdf:resource="#PlayingCard"/>
+  <rdfs:range rdf:resource="#PlayingCard"/>
+  <owl:inverseOf rdf:resource="#has_greater_value_than"/>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="#has_players_number">
   <rdfs:domain rdf:resource="#Game"/>
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-</owl:DatatypeProperty>
-
-<owl:DatatypeProperty rdf:about="#has_team">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  <rdfs:domain rdf:resource="#Game"/>
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
 </owl:DatatypeProperty>
 
 <owl:DatatypeProperty rdf:about="#is_professional">
@@ -86,11 +138,82 @@
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
 </owl:DatatypeProperty>
 
-<owl:Class rdf:about="#Game">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
+<owl:DatatypeProperty rdf:about="#is_custom_board">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Board"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+</owl:DatatypeProperty>
 
-<owl:Class rdf:about="#Equipment">
+<owl:DatatypeProperty rdf:about="#is_normal_card">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Card"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#is_custom_card">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Card"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_opponent">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#MultiPlayerGame"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_team">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#MultiPlayerGame"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_referee">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#ProfessionalSportGame"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_type">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#MagicCard"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_effect">
+  <rdfs:domain rdf:resource="#MagicCard"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_sides">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Dice"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_color">
+  <rdfs:domain rdf:resource="#Pencil"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#is_blank">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Paper"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_duration">
+  <rdfs:domain rdf:resource="#Game"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#has_number">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Dice"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#Game">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
@@ -98,72 +221,27 @@
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
+<owl:Class rdf:about="#Equipment">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
 <owl:Class rdf:about="#Spectator">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Card">
-  <rdfs:subClassOf rdf:resource="#Equipment"/>
+<owl:Class rdf:about="#Lawn">
+  <rdfs:subClassOf rdf:resource="#Field"/>
 </owl:Class>
 
-<owl:Class rdf:about="#MultiPlayerGame">
-  <rdfs:subClassOf rdf:resource="#Game"/>
-  <owl:equivalentClass>
-    <owl:Class>
-      <owl:intersectionOf rdf:parseType="Collection">
-        <rdf:Description rdf:about="#Game"/>
-        <owl:Restriction>
-          <owl:onProperty rdf:resource="#has_players_number"/>
-          <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minCardinality>
-        </owl:Restriction>
-      </owl:intersectionOf>
-    </owl:Class>
-  </owl:equivalentClass>
-</owl:Class>
-
-<owl:Class rdf:about="#SinglePlayerGame">
-  <rdfs:subClassOf rdf:resource="#Game"/>
-  <owl:equivalentClass>
-    <owl:Class>
-      <owl:intersectionOf rdf:parseType="Collection">
-        <rdf:Description rdf:about="#Game"/>
-        <owl:Restriction>
-          <owl:onProperty rdf:resource="#has_players_number"/>
-          <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
-        </owl:Restriction>
-      </owl:intersectionOf>
-    </owl:Class>
-  </owl:equivalentClass>
-</owl:Class>
-
-<owl:Class rdf:about="#TeamGame">
-  <rdfs:subClassOf rdf:resource="#Game"/>
-  <owl:equivalentClass>
-    <owl:Class>
-      <owl:intersectionOf rdf:parseType="Collection">
-        <rdf:Description rdf:about="#MultiPlayerGame"/>
-        <owl:Restriction>
-          <owl:onProperty rdf:resource="#has_team"/>
-          <owl:allValuesFrom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:allValuesFrom>
-        </owl:Restriction>
-      </owl:intersectionOf>
-    </owl:Class>
-  </owl:equivalentClass>
-</owl:Class>
-
-<owl:Class rdf:about="#PhysicalActivityGame">
-  <rdfs:subClassOf rdf:resource="#Game"/>
-</owl:Class>
-
-<owl:Class rdf:about="#IntelectualGame">
-  <rdfs:subClassOf rdf:resource="#Game"/>
-</owl:Class>
-
-<owl:Class rdf:about="#SportEquipment">
-  <rdfs:subClassOf rdf:resource="#Equipment"/>
+<owl:Class rdf:about="#Board">
+  <rdfs:subClassOf rdf:resource="#Field"/>
 </owl:Class>
 
 <owl:Class rdf:about="#Table">
+  <rdfs:subClassOf rdf:resource="#Equipment"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Card">
   <rdfs:subClassOf rdf:resource="#Equipment"/>
 </owl:Class>
 
@@ -183,16 +261,12 @@
   <rdfs:subClassOf rdf:resource="#Equipment"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Ball">
+<owl:Class rdf:about="#SportEquipment">
   <rdfs:subClassOf rdf:resource="#Equipment"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Lawn">
-  <rdfs:subClassOf rdf:resource="#Field"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Board">
-  <rdfs:subClassOf rdf:resource="#Field"/>
+<owl:Class rdf:about="#Ball">
+  <rdfs:subClassOf rdf:resource="#SportEquipment"/>
 </owl:Class>
 
 <owl:Class rdf:about="#Fan">
@@ -217,8 +291,85 @@
       <owl:intersectionOf rdf:parseType="Collection">
         <rdf:Description rdf:about="#Spectator"/>
         <owl:Restriction>
+          <owl:onProperty rdf:resource="#watch"/>
+          <owl:allValuesFrom rdf:resource="#Game"/>
+        </owl:Restriction>
+        <owl:Restriction>
           <owl:onProperty rdf:resource="#has_to_remain_silent"/>
-          <owl:allValuesFrom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:allValuesFrom>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#SinglePlayerGame">
+  <rdfs:subClassOf rdf:resource="#Game"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Game"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#is_played_by"/>
+          <owl:allValuesFrom rdf:resource="#Player"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_players_number"/>
+          <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#MultiPlayerGame">
+  <rdfs:subClassOf rdf:resource="#Game"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Game"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#is_played_by"/>
+          <owl:someValuesFrom rdf:resource="#Player"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_players_number"/>
+          <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minCardinality>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#IntelectualGame">
+  <rdfs:subClassOf rdf:resource="#Game"/>
+</owl:Class>
+
+<owl:Class rdf:about="#LogicalGame">
+  <rdfs:subClassOf rdf:resource="#IntelectualGame"/>
+</owl:Class>
+
+<owl:Class rdf:about="#StrategyGame">
+  <rdfs:subClassOf rdf:resource="#IntelectualGame"/>
+</owl:Class>
+
+<owl:Class rdf:about="#KnowledgeGame">
+  <rdfs:subClassOf rdf:resource="#IntelectualGame"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PhysicalActivityGame">
+  <rdfs:subClassOf rdf:resource="#Game"/>
+</owl:Class>
+
+<owl:Class rdf:about="#TeamGame">
+  <rdfs:subClassOf rdf:resource="#Game"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#MultiPlayerGame"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#has_team"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
         </owl:Restriction>
       </owl:intersectionOf>
     </owl:Class>
@@ -239,21 +390,46 @@
           <owl:onProperty rdf:resource="#watched_by"/>
           <owl:someValuesFrom rdf:resource="#Spectator"/>
         </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#IndividualSportGame">
+  <rdfs:subClassOf rdf:resource="#SinglePlayerGame"/>
+  <rdfs:subClassOf rdf:resource="#SportGame"/>
+</owl:Class>
+
+<owl:Class rdf:about="#TeamSportGame">
+  <rdfs:subClassOf rdf:resource="#TeamGame"/>
+  <rdfs:subClassOf rdf:resource="#SportGame"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ProfessionalSportGame">
+  <rdfs:subClassOf rdf:resource="#SportGame"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#SportGame"/>
         <owl:Restriction>
           <owl:onProperty rdf:resource="#is_professional"/>
-          <owl:someValuesFrom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:someValuesFrom>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
         </owl:Restriction>
       </owl:intersectionOf>
     </owl:Class>
   </owl:equivalentClass>
 </owl:Class>
 
-<owl:Class rdf:about="#LawnGame">
-  <rdfs:subClassOf rdf:resource="#SportGame"/>
+<owl:Class rdf:about="#ProfessionalBallGameOnLawn">
+  <rdfs:subClassOf rdf:resource="#ProfessionalSportGame"/>
   <owl:equivalentClass>
     <owl:Class>
       <owl:intersectionOf rdf:parseType="Collection">
-        <rdf:Description rdf:about="#SportGame"/>
+        <rdf:Description rdf:about="#ProfessionalSportGame"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#require"/>
+          <owl:allValuesFrom rdf:resource="#Ball"/>
+        </owl:Restriction>
         <owl:Restriction>
           <owl:onProperty rdf:resource="#played_on"/>
           <owl:allValuesFrom rdf:resource="#Lawn"/>
@@ -263,41 +439,56 @@
   </owl:equivalentClass>
 </owl:Class>
 
-<owl:Class rdf:about="#BallGame">
-  <rdfs:subClassOf rdf:resource="#SportGame"/>
+<owl:Class rdf:about="#PlayingCard">
+  <rdfs:subClassOf rdf:resource="#Card"/>
   <owl:equivalentClass>
     <owl:Class>
       <owl:intersectionOf rdf:parseType="Collection">
-        <rdf:Description rdf:about="#SportGame"/>
+        <rdf:Description rdf:about="#Card"/>
         <owl:Restriction>
-          <owl:onProperty rdf:resource="#require"/>
-          <owl:allValuesFrom rdf:resource="#Ball"/>
+          <owl:onProperty rdf:resource="#is_normal_card"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
         </owl:Restriction>
       </owl:intersectionOf>
     </owl:Class>
   </owl:equivalentClass>
 </owl:Class>
 
-<owl:Class rdf:about="#TeamSportGame">
-  <rdfs:subClassOf rdf:resource="#TeamGame"/>
-  <rdfs:subClassOf rdf:resource="#SportGame"/>
+<owl:Class rdf:about="#MagicCard">
+  <rdfs:subClassOf rdf:resource="#Card"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Card"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#is_custom_card"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
 </owl:Class>
 
-<owl:Class rdf:about="#IndividualSportGame">
-  <rdfs:subClassOf rdf:resource="#SinglePlayerGame"/>
-  <rdfs:subClassOf rdf:resource="#SportGame"/>
-</owl:Class>
-
-<owl:Class rdf:about="#LogicalGame">
-  <rdfs:subClassOf rdf:resource="#IntelectualGame"/>
-</owl:Class>
-
-<owl:Class rdf:about="#StrategyGame">
-  <rdfs:subClassOf rdf:resource="#IntelectualGame"/>
-</owl:Class>
-
-<owl:Class rdf:about="#KnowledgeGame">
-  <rdfs:subClassOf rdf:resource="#IntelectualGame"/>
+<owl:Class rdf:about="#VideoGame">
+  <rdfs:subClassOf rdf:resource="#Game"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Game"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#require"/>
+          <owl:allValuesFrom>
+            <owl:Class>
+              <owl:intersectionOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="#Table"/>
+                <rdf:Description rdf:about="#Computer"/>
+              </owl:intersectionOf>
+            </owl:Class>
+          </owl:allValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
 </owl:Class>
 
 <owl:Class rdf:about="#TableTopGame">
@@ -318,10 +509,6 @@
           <owl:onProperty rdf:resource="#require"/>
           <owl:allValuesFrom rdf:resource="#Table"/>
         </owl:Restriction>
-        <owl:Restriction>
-          <owl:onProperty rdf:resource="#is_professional"/>
-          <owl:someValuesFrom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:someValuesFrom>
-        </owl:Restriction>
       </owl:intersectionOf>
     </owl:Class>
   </owl:equivalentClass>
@@ -336,21 +523,6 @@
         <owl:Restriction>
           <owl:onProperty rdf:resource="#played_on"/>
           <owl:allValuesFrom rdf:resource="#Board"/>
-        </owl:Restriction>
-      </owl:intersectionOf>
-    </owl:Class>
-  </owl:equivalentClass>
-</owl:Class>
-
-<owl:Class rdf:about="#CardGame">
-  <rdfs:subClassOf rdf:resource="#TableTopGame"/>
-  <owl:equivalentClass>
-    <owl:Class>
-      <owl:intersectionOf rdf:parseType="Collection">
-        <rdf:Description rdf:about="#TableTopGame"/>
-        <owl:Restriction>
-          <owl:onProperty rdf:resource="#require"/>
-          <owl:allValuesFrom rdf:resource="#Card"/>
         </owl:Restriction>
       </owl:intersectionOf>
     </owl:Class>
@@ -391,110 +563,307 @@
   </owl:equivalentClass>
 </owl:Class>
 
-<owl:Class rdf:about="#VideoGame">
-  <rdfs:subClassOf rdf:resource="#Game"/>
+<owl:Class rdf:about="#CardGame">
+  <rdfs:subClassOf rdf:resource="#TableTopGame"/>
   <owl:equivalentClass>
     <owl:Class>
       <owl:intersectionOf rdf:parseType="Collection">
-        <rdf:Description rdf:about="#Game"/>
+        <rdf:Description rdf:about="#TableTopGame"/>
         <owl:Restriction>
           <owl:onProperty rdf:resource="#require"/>
-          <owl:allValuesFrom rdf:resource="#Computer"/>
-        </owl:Restriction>
-        <owl:Restriction>
-          <owl:onProperty rdf:resource="#is_professional"/>
-          <owl:someValuesFrom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:someValuesFrom>
+          <owl:allValuesFrom rdf:resource="#Card"/>
         </owl:Restriction>
       </owl:intersectionOf>
     </owl:Class>
   </owl:equivalentClass>
 </owl:Class>
 
-<LawnGame rdf:about="#horseshoes">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-</LawnGame>
+<owl:Class rdf:about="#Player">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
 
-<LawnGame rdf:about="#croquet">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-</LawnGame>
+<owl:Class rdf:about="#Pawn">
+  <rdfs:subClassOf rdf:resource="#Equipment"/>
+</owl:Class>
 
-<BallGame rdf:about="#football">
+<owl:Class rdf:about="#CardSuit">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf>
+    <owl:Class>
+      <owl:oneOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Spades"/>
+        <rdf:Description rdf:about="#Hearts"/>
+        <rdf:Description rdf:about="#Diamonds"/>
+        <rdf:Description rdf:about="#Clubs"/>
+      </owl:oneOf>
+    </owl:Class>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#CardValue">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf>
+    <owl:Class>
+      <owl:oneOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Two"/>
+        <rdf:Description rdf:about="#Three"/>
+        <rdf:Description rdf:about="#Four"/>
+        <rdf:Description rdf:about="#Five"/>
+        <rdf:Description rdf:about="#Six"/>
+        <rdf:Description rdf:about="#Seven"/>
+        <rdf:Description rdf:about="#Eight"/>
+        <rdf:Description rdf:about="#Nine"/>
+        <rdf:Description rdf:about="#Ten"/>
+        <rdf:Description rdf:about="#Jack"/>
+        <rdf:Description rdf:about="#Queen"/>
+        <rdf:Description rdf:about="#King"/>
+        <rdf:Description rdf:about="#Ace"/>
+      </owl:oneOf>
+    </owl:Class>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<ProfessionalBallGameOnLawn rdf:about="#football">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   <has_team rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</has_team>
-  <is_professional rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_professional>
-</BallGame>
+  <has_referee rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</has_referee>
+  <has_duration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">90</has_duration>
+</ProfessionalBallGameOnLawn>
 
-<BallGame rdf:about="#basketball">
+<Pawn rdf:about="#queen">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <has_team rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</has_team>
-  <is_professional rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_professional>
-</BallGame>
+</Pawn>
 
-<BallGame rdf:about="#volleyball">
+<Pawn rdf:about="#king">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <has_team rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</has_team>
-  <is_professional rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_professional>
-</BallGame>
+</Pawn>
+
+<CardSuit rdf:about="#Spades">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</CardSuit>
+
+<CardSuit rdf:about="#Hearts">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</CardSuit>
+
+<CardSuit rdf:about="#Diamonds">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</CardSuit>
+
+<CardSuit rdf:about="#Clubs">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</CardSuit>
+
+<CardValue rdf:about="#Two">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</CardValue>
+
+<CardValue rdf:about="#Three">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</CardValue>
+
+<CardValue rdf:about="#Four">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</CardValue>
+
+<CardValue rdf:about="#Five">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</CardValue>
+
+<CardValue rdf:about="#Six">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</CardValue>
+
+<CardValue rdf:about="#Seven">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</CardValue>
+
+<CardValue rdf:about="#Eight">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</CardValue>
+
+<CardValue rdf:about="#Nine">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</CardValue>
+
+<CardValue rdf:about="#Ten">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</CardValue>
+
+<CardValue rdf:about="#Jack">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</CardValue>
+
+<CardValue rdf:about="#Queen">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</CardValue>
+
+<CardValue rdf:about="#King">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</CardValue>
+
+<CardValue rdf:about="#Ace">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</CardValue>
 
 <BoardGame rdf:about="#chess">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <need rdf:resource="#king"/>
+  <need rdf:resource="#knight"/>
+  <need rdf:resource="#queen"/>
+  <need rdf:resource="#pawn"/>
+  <need rdf:resource="#bishop"/>
+  <need rdf:resource="#rook"/>
   <has_players_number rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</has_players_number>
 </BoardGame>
 
 <BoardGame rdf:about="#go">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   <has_players_number rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</has_players_number>
+  <has_opponent rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</has_opponent>
 </BoardGame>
+
+<Pawn rdf:about="#pawn">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Pawn>
+
+<Pawn rdf:about="#knight">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Pawn>
+
+<Pawn rdf:about="#bishop">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Pawn>
+
+<Pawn rdf:about="#rook">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Pawn>
+
+<Lawn rdf:about="#green">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Lawn>
+
+<Ball rdf:about="#golf_ball">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Ball>
+
+<Equipment rdf:about="#golf_stick">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Equipment>
+
+<Player rdf:about="#Yavor">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Player>
+
+<Player rdf:about="#Sasho">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Player>
+
+<Player rdf:about="#Tanya">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Player>
+
+<Player rdf:about="#Gosho">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Player>
+
+<Kibitzer rdf:about="#Pesho">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <plays rdf:resource="#Pokemon Go"/>
+</Kibitzer>
+
+<Fan rdf:about="#Tsetso">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_favourite rdf:resource="#Gosho"/>
+  <has_favourite rdf:resource="#Sasho"/>
+  <plays rdf:resource="#chess"/>
+  <plays rdf:resource="#Pokemon Go"/>
+</Fan>
 
 <CardGame rdf:about="#bridge">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <is_played_by rdf:resource="#Gosho"/>
+  <is_played_by rdf:resource="#Tanya"/>
+  <is_played_by rdf:resource="#Yavor"/>
+  <is_played_by rdf:resource="#Sasho"/>
+  <watched_by rdf:resource="#Pesho"/>
+  <watched_by rdf:resource="#Tsetso"/>
+  <require rdf:resource="#PlayingCard"/>
   <has_players_number rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</has_players_number>
 </CardGame>
 
-<CardGame rdf:about="#poker">
+<PlayingCard rdf:about="#Ace of Spades">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-</CardGame>
+  <has_suit rdf:resource="#Spades"/>
+  <has_value rdf:resource="#Ace"/>
+  <has_greater_value_than rdf:resource="#King of Spades"/>
+</PlayingCard>
 
-<DiceGame rdf:about="#poker_dice">
+<PlayingCard rdf:about="#King of Spades">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-</DiceGame>
+  <has_suit rdf:resource="#Spades"/>
+  <has_value rdf:resource="#King"/>
+</PlayingCard>
+
+<PlayingCard rdf:about="#Queen of Hearts">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_suit rdf:resource="#Hearts"/>
+  <has_value rdf:resource="#Queen"/>
+  <has_lower_value_than rdf:resource="#King of Spades"/>
+</PlayingCard>
+
+<PlayingCard rdf:about="#Jack of Clubs">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <has_suit rdf:resource="#Clubs"/>
+  <has_value rdf:resource="#Jack"/>
+  <has_lower_value_than rdf:resource="#King of Spades"/>
+  <has_lower_value_than rdf:resource="#Queen of Hearts"/>
+</PlayingCard>
+
+<VideoGame rdf:about="#Pokemon Go">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</VideoGame>
 
 <PaperAndPencilGame rdf:about="#tic_tac_toe">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   <has_players_number rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</has_players_number>
-</PaperAndPencilGame>
-
-<PaperAndPencilGame rdf:about="#sudoku">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-</PaperAndPencilGame>
-
-<VideoGame rdf:about="#pong">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-</VideoGame>
-
-<VideoGame rdf:about="#minecraft">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-</VideoGame>
-
-<VideoGame rdf:about="#super_mario">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <has_players_number rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</has_players_number>
   <is_amateur rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_amateur>
-</VideoGame>
+  <has_opponent rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</has_opponent>
+</PaperAndPencilGame>
 
-<Card rdf:about="#jack">
+<Dice rdf:about="#6 sided dice">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-</Card>
+  <has_sides rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</has_sides>
+  <has_number rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</has_number>
+</Dice>
 
-<Card rdf:about="#queen">
+<Dice rdf:about="#12 sided dice">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <has_greater_value_than rdf:resource="#jack"/>
-</Card>
+  <has_lower_number_than rdf:resource="#6 sided dice"/>
+  <has_sides rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</has_sides>
+  <has_number rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</has_number>
+</Dice>
 
-<Card rdf:about="#king">
+<Dice rdf:about="#8 sided dice">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <has_greater_value_than rdf:resource="#queen"/>
-</Card>
+  <has_greater_number_than rdf:resource="#6 sided dice"/>
+  <has_greater_number_than rdf:resource="#12 sided dice"/>
+  <has_sides rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</has_sides>
+  <has_number rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</has_number>
+</Dice>
+
+<BoardGame rdf:about="#Catan">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <require rdf:resource="#MagicCard"/>
+  <has_team rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</has_team>
+</BoardGame>
+
+<ProfessionalBallGameOnLawn rdf:about="#professionalballgameonlawn39">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <played_on rdf:resource="#green"/>
+  <require rdf:resource="#golf_ball"/>
+  <require rdf:resource="#golf_stick"/>
+</ProfessionalBallGameOnLawn>
 
 
 </rdf:RDF>
