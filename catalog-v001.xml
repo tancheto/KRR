@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1643061765140" name="http://purl.org/net/GameOntology" uri="video_game_ontology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1643061765140" name="http://test.org/game_ontology.owl" uri="game_ontology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1643061765140" name="http://www.semanticweb.org/tanya/ontologies/2022/0/merged_ontology" uri="merged_ontology.owl"/>
+    </group>
+</catalog>

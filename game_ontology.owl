@@ -6,7 +6,9 @@
          xml:base="http://test.org/game_ontology.owl"
          xmlns="http://test.org/game_ontology.owl#">
 
-<owl:Ontology rdf:about="http://test.org/game_ontology.owl"/>
+<owl:Ontology rdf:about="http://test.org/game_ontology.owl">
+  <owl:imports rdf:resource="http://purl.org/net/VideoGameOntology"/>
+</owl:Ontology>
 
 <owl:ObjectProperty rdf:about="#require">
   <rdfs:domain rdf:resource="#Game"/>
@@ -393,6 +395,7 @@
 
 <owl:Class rdf:about="#VideoGame">
   <rdfs:subClassOf rdf:resource="#Game"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/net/VideoGameOntology#Game"/>
   <owl:equivalentClass>
     <owl:Class>
       <owl:intersectionOf rdf:parseType="Collection">

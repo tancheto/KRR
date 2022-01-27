@@ -1,0 +1,2313 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/tanya/ontologies/2022/0/merged_ontology"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/tanya/ontologies/2022/0/merged_ontology">
+    <Prefix name="" IRI="http://www.semanticweb.org/tanya/ontologies/2022/0/merged_ontology"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/creator"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#anyURI">http://delicias.dia.fi.upm.es/members/DGarijo/#me</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/creator"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#anyURI">http://filip.milstan.net/</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/creator"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#anyURI">http://purl.org/net/mpoveda</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/creator"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#anyURI">http://www.mendeley.com/profiles/janne-parkkila/</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <Literal xml:lang="en">The Video Game Ontology is an ontology designed for describing video games and all the resources related to their game plays.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/title"/>
+        <Literal xml:lang="en">The Video Game Ontology</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/created"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#date">2013-10-22</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/modified"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#date">2014-12-19</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+        <Literal>vgo</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/vocab/vann/preferredNamespaceUri"/>
+        <Literal>http://purl.org/net/VideoGameOntology#</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal xml:lang="en">An ontology for describing video games and game plays. Created by Janne Parkkila, Filip Radulovic, Daniel Garijo and María Poveda.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal>1.0</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="http://dbpedia.org/ontology/PopulatedPlace"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://org.semanticweb.owlapi/error#Error1"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://org.semanticweb.owlapi/error#Error2"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://org.semanticweb.owlapi/error#Error3"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://org.semanticweb.owlapi/error#Error4"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://org.semanticweb.owlapi/error#Error5"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/goodrelations/v1#ProductOrService"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Achievement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Character"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Collection"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Completion"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Curiosity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Fandom"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Feature"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#GainEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Game"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#GameEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#GameProduct"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Genre"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#HardMode"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#InAppPurchaseEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#InstantaneousEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Item"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Leaderboard"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#LoseEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Loyalty"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Luck"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#MenuEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Minigame"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Multiplayer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Paragon"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Player"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#PlayerEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#PlayingArea"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Session"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#SpecialPlayStyle"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Tutorial"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Veteran"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Virtuosity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://schema.org/Product"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#Ball"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#BallGame"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#Board"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#BoardGame"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#Card"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#CardGame"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#Computer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#Dice"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#DiceGame"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#Equipment"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#Fan"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#Field"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#Game"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#IndividualSportGame"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#IntelectualGame"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#Kibitzer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#KnowledgeGame"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#Lawn"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#LawnGame"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#LogicalGame"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#MultiPlayerGame"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#Paper"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#PaperAndPencilGame"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#Pencil"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#PhysicalActivityGame"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#SinglePlayerGame"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#Spectator"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#SportEquipment"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#SportGame"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#StrategyGame"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#Table"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#TableTopGame"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#TeamGame"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://test.org/game_ontology.owl#TeamSportGame"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/dc/terms/creator"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasAchievement"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasCharacter"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasFeature"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasGameGenre"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasItem"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasLeaderboard"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasPlayingArea"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#involvesAchievement"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#involvesCharacter"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#involvesPlayer"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isAchievedInSession"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isAchievementInGame"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isCharacterInGame"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isCharacterInSession"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isEventAssociatedToPlayer"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isEventInGame"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isEventInSession"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isEventRelatedToItem"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isEventTriggeredByCharacter"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isFriendWithPlayer"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isItemInGame"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isLeaderboardInGame"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isPlayerInSession"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isSessionInGame"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#livesIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#ownsAchievement"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#ownsCharacter"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#ownsItem"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#playsGame"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#purchasesGameOffering"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#unlocksAchievement"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#has_greater_value_than"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#has_interest_in"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#has_less_value_than"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#played_on"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#require"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#required_by"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#watch"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#watched_by"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/knows"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://purl.org/net/VideoGameOntology#endTime"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://purl.org/net/VideoGameOntology#eventName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://purl.org/net/VideoGameOntology#eventTime"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://purl.org/net/VideoGameOntology#releaseDate"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://purl.org/net/VideoGameOntology#startTime"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://purl.org/net/VideoGameOntology#username"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://test.org/game_ontology.owl#has_players_number"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://test.org/game_ontology.owl#has_team"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://test.org/game_ontology.owl#has_to_remain_silent"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://test.org/game_ontology.owl#is_amateur"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://test.org/game_ontology.owl#is_professional"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#basketball"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#bridge"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#chess"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#croquet"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#football"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#go"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#horseshoes"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#jack"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#king"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#minecraft"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#poker"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#poker_dice"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#pong"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#queen"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#sudoku"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#super_mario"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#tic_tac_toe"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#volleyball"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/contributor"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/creator"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/title"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/created"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/modified"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/vocab/vann/preferredNamespaceUri"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="owl:allValuesFrom"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="owl:someValuesFrom"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Game"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://org.semanticweb.owlapi/error#Error2"/>
+            <Class IRI="http://purl.org/net/VideoGameOntology#Game"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="http://test.org/game_ontology.owl#require"/>
+                <Class IRI="http://test.org/game_ontology.owl#Computer"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://test.org/game_ontology.owl#BallGame"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://test.org/game_ontology.owl#SportGame"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="http://test.org/game_ontology.owl#require"/>
+                <Class IRI="http://test.org/game_ontology.owl#Ball"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://test.org/game_ontology.owl#BoardGame"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://test.org/game_ontology.owl#TableTopGame"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="http://test.org/game_ontology.owl#played_on"/>
+                <Class IRI="http://test.org/game_ontology.owl#Board"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://test.org/game_ontology.owl#CardGame"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://test.org/game_ontology.owl#TableTopGame"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="http://test.org/game_ontology.owl#require"/>
+                <Class IRI="http://test.org/game_ontology.owl#Card"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://test.org/game_ontology.owl#DiceGame"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://test.org/game_ontology.owl#TableTopGame"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="http://test.org/game_ontology.owl#require"/>
+                <Class IRI="http://test.org/game_ontology.owl#Dice"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://test.org/game_ontology.owl#Fan"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://test.org/game_ontology.owl#Spectator"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="http://test.org/game_ontology.owl#has_interest_in"/>
+                <Class IRI="http://test.org/game_ontology.owl#Game"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://test.org/game_ontology.owl#Kibitzer"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://org.semanticweb.owlapi/error#Error5"/>
+            <Class IRI="http://test.org/game_ontology.owl#Spectator"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://test.org/game_ontology.owl#LawnGame"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://test.org/game_ontology.owl#SportGame"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="http://test.org/game_ontology.owl#played_on"/>
+                <Class IRI="http://test.org/game_ontology.owl#Lawn"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://test.org/game_ontology.owl#MultiPlayerGame"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://test.org/game_ontology.owl#Game"/>
+            <DataMinCardinality cardinality="2">
+                <DataProperty IRI="http://test.org/game_ontology.owl#has_players_number"/>
+            </DataMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://test.org/game_ontology.owl#PaperAndPencilGame"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://test.org/game_ontology.owl#TableTopGame"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="http://test.org/game_ontology.owl#require"/>
+                <Class IRI="http://test.org/game_ontology.owl#Paper"/>
+            </ObjectAllValuesFrom>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="http://test.org/game_ontology.owl#require"/>
+                <Class IRI="http://test.org/game_ontology.owl#Pencil"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://test.org/game_ontology.owl#SinglePlayerGame"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://test.org/game_ontology.owl#Game"/>
+            <DataExactCardinality cardinality="1">
+                <DataProperty IRI="http://test.org/game_ontology.owl#has_players_number"/>
+            </DataExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://test.org/game_ontology.owl#SportGame"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://org.semanticweb.owlapi/error#Error4"/>
+            <Class IRI="http://test.org/game_ontology.owl#PhysicalActivityGame"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="http://test.org/game_ontology.owl#require"/>
+                <Class IRI="http://test.org/game_ontology.owl#SportEquipment"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="http://test.org/game_ontology.owl#watched_by"/>
+                <Class IRI="http://test.org/game_ontology.owl#Spectator"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://test.org/game_ontology.owl#TableTopGame"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://org.semanticweb.owlapi/error#Error3"/>
+            <Class IRI="http://test.org/game_ontology.owl#LogicalGame"/>
+            <Class IRI="http://test.org/game_ontology.owl#StrategyGame"/>
+            <ObjectUnionOf>
+                <Class IRI="http://test.org/game_ontology.owl#MultiPlayerGame"/>
+                <Class IRI="http://test.org/game_ontology.owl#SinglePlayerGame"/>
+            </ObjectUnionOf>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="http://test.org/game_ontology.owl#require"/>
+                <Class IRI="http://test.org/game_ontology.owl#Table"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://test.org/game_ontology.owl#TeamGame"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://org.semanticweb.owlapi/error#Error1"/>
+            <Class IRI="http://test.org/game_ontology.owl#MultiPlayerGame"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Collection"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Achievement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Completion"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Achievement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Curiosity"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Achievement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Fandom"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Achievement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#GainEvent"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#GameEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#GameEvent"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#InstantaneousEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#GameProduct"/>
+        <Class IRI="http://purl.org/goodrelations/v1#ProductOrService"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#GameProduct"/>
+        <Class IRI="http://schema.org/Product"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#GameProduct"/>
+        <ObjectUnionOf>
+            <Class IRI="http://purl.org/net/VideoGameOntology#Achievement"/>
+            <Class IRI="http://purl.org/net/VideoGameOntology#Character"/>
+            <Class IRI="http://purl.org/net/VideoGameOntology#Game"/>
+            <Class IRI="http://purl.org/net/VideoGameOntology#Item"/>
+            <Class IRI="http://purl.org/net/VideoGameOntology#PlayingArea"/>
+        </ObjectUnionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#HardMode"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Achievement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#InAppPurchaseEvent"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#InstantaneousEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Leaderboard"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#LoseEvent"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#GameEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Loyalty"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Achievement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Luck"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Achievement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#MenuEvent"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#InstantaneousEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Minigame"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Achievement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Multiplayer"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Achievement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Paragon"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Achievement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Player"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#PlayerEvent"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#InstantaneousEvent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Session"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#SpecialPlayStyle"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Achievement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Tutorial"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Achievement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Veteran"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Achievement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Virtuosity"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Achievement"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#Ball"/>
+        <Class IRI="http://test.org/game_ontology.owl#Equipment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#BallGame"/>
+        <Class IRI="http://test.org/game_ontology.owl#SportGame"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#Board"/>
+        <Class IRI="http://test.org/game_ontology.owl#Field"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#BoardGame"/>
+        <Class IRI="http://test.org/game_ontology.owl#TableTopGame"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#Card"/>
+        <Class IRI="http://test.org/game_ontology.owl#Equipment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#CardGame"/>
+        <Class IRI="http://test.org/game_ontology.owl#TableTopGame"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#Computer"/>
+        <Class IRI="http://test.org/game_ontology.owl#Equipment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#Dice"/>
+        <Class IRI="http://test.org/game_ontology.owl#Equipment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#DiceGame"/>
+        <Class IRI="http://test.org/game_ontology.owl#TableTopGame"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#Equipment"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#Fan"/>
+        <Class IRI="http://test.org/game_ontology.owl#Spectator"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#Field"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#Game"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#IndividualSportGame"/>
+        <Class IRI="http://test.org/game_ontology.owl#SinglePlayerGame"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#IndividualSportGame"/>
+        <Class IRI="http://test.org/game_ontology.owl#SportGame"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#IntelectualGame"/>
+        <Class IRI="http://test.org/game_ontology.owl#Game"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#Kibitzer"/>
+        <Class IRI="http://test.org/game_ontology.owl#Spectator"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#KnowledgeGame"/>
+        <Class IRI="http://test.org/game_ontology.owl#IntelectualGame"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#Lawn"/>
+        <Class IRI="http://test.org/game_ontology.owl#Field"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#LawnGame"/>
+        <Class IRI="http://test.org/game_ontology.owl#SportGame"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#LogicalGame"/>
+        <Class IRI="http://test.org/game_ontology.owl#IntelectualGame"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#MultiPlayerGame"/>
+        <Class IRI="http://test.org/game_ontology.owl#Game"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#Paper"/>
+        <Class IRI="http://test.org/game_ontology.owl#Equipment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#PaperAndPencilGame"/>
+        <Class IRI="http://test.org/game_ontology.owl#TableTopGame"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#Pencil"/>
+        <Class IRI="http://test.org/game_ontology.owl#Equipment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#PhysicalActivityGame"/>
+        <Class IRI="http://test.org/game_ontology.owl#Game"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#SinglePlayerGame"/>
+        <Class IRI="http://test.org/game_ontology.owl#Game"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#Spectator"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#SportEquipment"/>
+        <Class IRI="http://test.org/game_ontology.owl#Equipment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#SportGame"/>
+        <Class IRI="http://test.org/game_ontology.owl#PhysicalActivityGame"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#StrategyGame"/>
+        <Class IRI="http://test.org/game_ontology.owl#IntelectualGame"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#Table"/>
+        <Class IRI="http://test.org/game_ontology.owl#Equipment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#TableTopGame"/>
+        <Class IRI="http://test.org/game_ontology.owl#LogicalGame"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#TableTopGame"/>
+        <Class IRI="http://test.org/game_ontology.owl#StrategyGame"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#TeamGame"/>
+        <Class IRI="http://test.org/game_ontology.owl#Game"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#TeamSportGame"/>
+        <Class IRI="http://test.org/game_ontology.owl#SportGame"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://test.org/game_ontology.owl#TeamSportGame"/>
+        <Class IRI="http://test.org/game_ontology.owl#TeamGame"/>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="http://test.org/game_ontology.owl#BallGame"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#basketball"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://test.org/game_ontology.owl#CardGame"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#bridge"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://test.org/game_ontology.owl#BoardGame"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#chess"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://test.org/game_ontology.owl#LawnGame"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#croquet"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://test.org/game_ontology.owl#BallGame"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#football"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://test.org/game_ontology.owl#BoardGame"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#go"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://test.org/game_ontology.owl#LawnGame"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#horseshoes"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://test.org/game_ontology.owl#Card"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#jack"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://test.org/game_ontology.owl#Card"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#king"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Game"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#minecraft"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://test.org/game_ontology.owl#CardGame"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#poker"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://test.org/game_ontology.owl#DiceGame"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#poker_dice"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Game"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#pong"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://test.org/game_ontology.owl#Card"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#queen"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://test.org/game_ontology.owl#PaperAndPencilGame"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#sudoku"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Game"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#super_mario"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://test.org/game_ontology.owl#PaperAndPencilGame"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#tic_tac_toe"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://test.org/game_ontology.owl#BallGame"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#volleyball"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#has_greater_value_than"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#king"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#queen"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#has_greater_value_than"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#queen"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#jack"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://test.org/game_ontology.owl#has_team"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#basketball"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://test.org/game_ontology.owl#is_professional"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#basketball"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://test.org/game_ontology.owl#has_players_number"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#bridge"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://test.org/game_ontology.owl#has_players_number"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#chess"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://test.org/game_ontology.owl#has_team"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#football"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://test.org/game_ontology.owl#is_professional"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#football"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://test.org/game_ontology.owl#has_players_number"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#go"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://test.org/game_ontology.owl#has_players_number"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#super_mario"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://test.org/game_ontology.owl#is_amateur"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#super_mario"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://test.org/game_ontology.owl#has_players_number"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#tic_tac_toe"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://test.org/game_ontology.owl#has_team"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#volleyball"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://test.org/game_ontology.owl#is_professional"/>
+        <NamedIndividual IRI="http://test.org/game_ontology.owl#volleyball"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isFriendWithPlayer"/>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/knows"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasAchievement"/>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isAchievementInGame"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasCharacter"/>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isCharacterInGame"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasItem"/>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isItemInGame"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasLeaderboard"/>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isLeaderboardInGame"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#involvesAchievement"/>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isAchievedInSession"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#involvesCharacter"/>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isCharacterInSession"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#involvesPlayer"/>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isPlayerInSession"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#has_greater_value_than"/>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#has_less_value_than"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#require"/>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#required_by"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#watch"/>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#watched_by"/>
+    </InverseObjectProperties>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isFriendWithPlayer"/>
+    </SymmetricObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#has_greater_value_than"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#has_less_value_than"/>
+    </TransitiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/dc/terms/creator"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Game"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasAchievement"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Game"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasCharacter"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Game"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasFeature"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Item"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasGameGenre"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Game"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasItem"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Game"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasLeaderboard"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Game"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasPlayingArea"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Game"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#involvesAchievement"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Session"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#involvesCharacter"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Session"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#involvesPlayer"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Session"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isAchievedInSession"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Achievement"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isAchievementInGame"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Achievement"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isCharacterInGame"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Character"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isCharacterInSession"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Character"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isEventAssociatedToPlayer"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#InstantaneousEvent"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isEventInGame"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#InstantaneousEvent"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isEventInSession"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#InstantaneousEvent"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isEventRelatedToItem"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#InstantaneousEvent"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isEventTriggeredByCharacter"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#InstantaneousEvent"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isFriendWithPlayer"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Player"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isItemInGame"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Item"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isLeaderboardInGame"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Leaderboard"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isPlayerInSession"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Player"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isSessionInGame"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Session"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#livesIn"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Player"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#ownsAchievement"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Player"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#ownsCharacter"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Player"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#ownsItem"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Character"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#playsGame"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Player"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#purchasesGameOffering"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#InAppPurchaseEvent"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#unlocksAchievement"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#InstantaneousEvent"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#has_greater_value_than"/>
+        <Class IRI="http://test.org/game_ontology.owl#Card"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#has_interest_in"/>
+        <Class IRI="http://test.org/game_ontology.owl#Spectator"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#has_less_value_than"/>
+        <Class IRI="http://test.org/game_ontology.owl#Card"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#played_on"/>
+        <Class IRI="http://test.org/game_ontology.owl#Game"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#require"/>
+        <Class IRI="http://test.org/game_ontology.owl#Game"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#required_by"/>
+        <Class IRI="http://test.org/game_ontology.owl#Equipment"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#watch"/>
+        <Class IRI="http://test.org/game_ontology.owl#Spectator"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#watched_by"/>
+        <Class IRI="http://test.org/game_ontology.owl#Game"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/dc/terms/creator"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Agent"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasAchievement"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Achievement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasCharacter"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Character"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasFeature"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Feature"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasGameGenre"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Genre"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasItem"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Item"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasLeaderboard"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Leaderboard"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#hasPlayingArea"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#PlayingArea"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#involvesAchievement"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Achievement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#involvesCharacter"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Character"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#involvesPlayer"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Player"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isAchievedInSession"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Session"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isAchievementInGame"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Game"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isCharacterInGame"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Game"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isCharacterInSession"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Session"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isEventAssociatedToPlayer"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Player"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isEventInGame"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Game"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isEventInSession"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Session"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isEventRelatedToItem"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Item"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isEventTriggeredByCharacter"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Character"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isFriendWithPlayer"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Player"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isItemInGame"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Game"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isLeaderboardInGame"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Game"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isPlayerInSession"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Session"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#isSessionInGame"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Game"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#livesIn"/>
+        <Class IRI="http://dbpedia.org/ontology/PopulatedPlace"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#ownsAchievement"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Achievement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#ownsCharacter"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Character"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#ownsItem"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Item"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#playsGame"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Game"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#purchasesGameOffering"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#GameProduct"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://purl.org/net/VideoGameOntology#unlocksAchievement"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Achievement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#has_greater_value_than"/>
+        <Class IRI="http://test.org/game_ontology.owl#Card"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#has_interest_in"/>
+        <Class IRI="http://test.org/game_ontology.owl#Game"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#has_less_value_than"/>
+        <Class IRI="http://test.org/game_ontology.owl#Card"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#played_on"/>
+        <Class IRI="http://test.org/game_ontology.owl#Field"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#require"/>
+        <Class IRI="http://test.org/game_ontology.owl#Equipment"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#required_by"/>
+        <Class IRI="http://test.org/game_ontology.owl#Game"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#watch"/>
+        <Class IRI="http://test.org/game_ontology.owl#Game"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://test.org/game_ontology.owl#watched_by"/>
+        <Class IRI="http://test.org/game_ontology.owl#Spectator"/>
+    </ObjectPropertyRange>
+    <FunctionalDataProperty>
+        <DataProperty IRI="http://test.org/game_ontology.owl#has_players_number"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="http://test.org/game_ontology.owl#has_team"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="http://test.org/game_ontology.owl#has_to_remain_silent"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="http://test.org/game_ontology.owl#is_amateur"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="http://test.org/game_ontology.owl#is_professional"/>
+    </FunctionalDataProperty>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://purl.org/net/VideoGameOntology#endTime"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Session"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://purl.org/net/VideoGameOntology#eventName"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#InstantaneousEvent"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://purl.org/net/VideoGameOntology#eventTime"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#InstantaneousEvent"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://purl.org/net/VideoGameOntology#releaseDate"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Game"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://purl.org/net/VideoGameOntology#startTime"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Session"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://purl.org/net/VideoGameOntology#username"/>
+        <Class IRI="http://purl.org/net/VideoGameOntology#Player"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://test.org/game_ontology.owl#has_players_number"/>
+        <Class IRI="http://test.org/game_ontology.owl#Game"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://test.org/game_ontology.owl#has_team"/>
+        <Class IRI="http://test.org/game_ontology.owl#Game"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://test.org/game_ontology.owl#has_to_remain_silent"/>
+        <Class IRI="http://test.org/game_ontology.owl#Spectator"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://test.org/game_ontology.owl#is_amateur"/>
+        <Class IRI="http://test.org/game_ontology.owl#Game"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://test.org/game_ontology.owl#is_professional"/>
+        <Class IRI="http://test.org/game_ontology.owl#Game"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="http://purl.org/net/VideoGameOntology#endTime"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://purl.org/net/VideoGameOntology#eventName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://purl.org/net/VideoGameOntology#eventTime"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://purl.org/net/VideoGameOntology#releaseDate"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://purl.org/net/VideoGameOntology#startTime"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://purl.org/net/VideoGameOntology#username"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://test.org/game_ontology.owl#has_players_number"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://test.org/game_ontology.owl#has_team"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://test.org/game_ontology.owl#has_to_remain_silent"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://test.org/game_ontology.owl#is_amateur"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="http://test.org/game_ontology.owl#is_professional"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Achievement</IRI>
+        <Literal xml:lang="en">The vgo:Achievement is a reward gained in a game due to some event accomplished in the game. Achievements are commonly used in game industry to reward players for having accomplished tasks in the game. 
+This ontology defines various subclasses of vgo:Achievement, which are all based on the classification presented by Markus Montola et al. [Markus Montola, Timo Nummenmaa, Andrés Lucero, Marion Boberg, and Hannu Korhonen, 2009, “Applying game achievement systems to enhance user experience in a photo sharing service”, In Proceedings of the 13th International MindTrek Conference: Everyday Life in the Ubiquitous Era (MindTrek &apos;09)] http://dl.acm.org/citation.cfm?id=1621859</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Achievement</IRI>
+        <Literal xml:lang="en">Achievement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Character</IRI>
+        <Literal xml:lang="en">A vgo:Character is any actor that can exists in a game. A character  can be a human-like creature as seen traditionally in video games. However, a character could also be a car, a paddle in game of Pong or spaceship of a space shooter game. This is often contextually related to the gameplay of a certain game. A character can be either controller by a player or by a computer.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Character</IRI>
+        <Literal xml:lang="en">Character</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Collection</IRI>
+        <Literal xml:lang="en">The vgo:Collection type of achievement is typically rewarded from collecting an amount of certain items in a game. An example of vgo:Collection would be obtaining a full set of christmas clothes for a character to wear or collecting every possible flower in the game.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Collection</IRI>
+        <Literal xml:lang="en">Collection</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Completion</IRI>
+        <Literal xml:lang="en">The vgo:Completion type of achievement is usually rewarded from successfully completing a certain goal or subgoal in a game. An example of vgo:Completion would be to save a princess from a burning tower or completing all side-quests in a game.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Completion</IRI>
+        <Literal xml:lang="en">Completion</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Curiosity</IRI>
+        <Literal xml:lang="en">The vgo:Curiosity describes funny random things that can happen or be found in the game. An example could be jumping from the Eiffel tower without dying or following a comupter controlled character’s activities for one hour.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Curiosity</IRI>
+        <Literal xml:lang="en">Curiosity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Fandom</IRI>
+        <Literal xml:lang="en">The vgo:Fandom achievement is related to doing some true fan activities. An example of vgo:Fandom could be purchasing a collectors edition of the game or attending a fan gathering.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Fandom</IRI>
+        <Literal xml:lang="en">Fandom</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Feature</IRI>
+        <Literal xml:lang="en">vgo:Feature describes an ability or characteristic. For example, a sword could have “damage dealing” ability and a bottle of water could be “potable”.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Feature</IRI>
+        <Literal xml:lang="en">Feature</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#GainEvent</IRI>
+        <Literal xml:lang="en">The vgo:GainEvent describes an event that is related to character/player gaining something in a game. This is a subclass of vgo:GameEvent as gaining something is related to a specific game. For example, a player can gain a new character, achievement or item.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#GainEvent</IRI>
+        <Literal xml:lang="en">gain event</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Game</IRI>
+        <Literal xml:lang="en">The vgo:Game class describes a game product that can be played by a player.
+Examples of games are Pong, Grand Theft Auto, Pokemon and Need for Speed.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Game</IRI>
+        <Literal xml:lang="en">Game</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#GameEvent</IRI>
+        <Literal xml:lang="en">The vgo:GameEvent describes an event that takes place in a game without straight player interaction. GameEvents are often very specific for each game. Examples of vgo:GameEvent could be an enemy dying, connecting to a multiplayer server, loading a new level or playing an animation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#GameEvent</IRI>
+        <Literal xml:lang="en">game event</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#GameProduct</IRI>
+        <Literal xml:lang="en">A vgo:GameProduct is anything that is for sale inside a game. These can be either normal game items purchased with in-game currency or with real world money. An example of vgo:GameProduct could be a consumable health potion bought with real money, a better weapon or some visual improvement (e.g. Hats in Steam). Basically a game product can be anything, a character, an item or an achievement.
+GameProduct is a subclass of Good Relations: ProductOrService &amp; schema:Product. Since vgo:GameProduct is a type of buyable product, it reuses the properties available in the schema and Good Relations, such as currency price, validity of the offer and so on.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#GameProduct</IRI>
+        <Literal xml:lang="en">game product</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Genre</IRI>
+        <Literal xml:lang="en">The vgo:Genre class describes the genre a game belongs to. All of the games have at least one genre. Examples of this are RPG, Simulator and Adventure</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Genre</IRI>
+        <Literal xml:lang="en">Genre</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#HardMode</IRI>
+        <Literal xml:lang="en">The vgo:HardMode achievement describes succeeding in a game on a high difficulty level. An example could be completing the “Doom” game on Nightmare difficulty level.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#HardMode</IRI>
+        <Literal xml:lang="en">hard mode</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#InAppPurchaseEvent</IRI>
+        <Literal xml:lang="en">The vgo:InAppPurchaseEvent describes an event that is related to making a purchase with real money inside a game. This is a subclass of InstantaneousEvent because it happens at certain moment in time. An example of vgo:InAppPurchaseEvent would be unlocking secret levels with real money or purchasing better equipment with real money.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#InAppPurchaseEvent</IRI>
+        <Literal xml:lang="en">in-app purchase event</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#InstantaneousEvent</IRI>
+        <Literal xml:lang="en">The vgo:InstantaneousEvent class describes an event that happens during the gameplay at a certain moment in time. This can be a player gaining an achievement, killing an enemy or making an in-app purchase.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#InstantaneousEvent</IRI>
+        <Literal xml:lang="en">instantaneous event</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Item</IRI>
+        <Literal xml:lang="en">A vgo:Item portrays any item that exists in a game. The item can either be just visual part of the game or a concrete usable item. As an example an item could be a drinkable potion, a magical sword or just a flower pot.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Item</IRI>
+        <Literal xml:lang="en">Item</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Leaderboard</IRI>
+        <Literal xml:lang="en">The vgo:Leaderboard class describes a ranking system of the players. There can be multiple rankings in a game, for example, the kill-count ranking of Modern Warfare or the best time listing of Formula 1 game.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Leaderboard</IRI>
+        <Literal xml:lang="en">Leaderboard</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#LoseEvent</IRI>
+        <Literal xml:lang="en">vgo:LoseEvent describes an event that is related to character/player losing something in a game. This is a subclass of GameEvent as gaining something is related to a specific game. For example, a player can lose a character due to trade with another player. Another example would be a character losing item due to consuming it.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#LoseEvent</IRI>
+        <Literal xml:lang="en">lose event</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Loyalty</IRI>
+        <Literal xml:lang="en">The vgo:Loyalty achievement is used to give recognition to loyal players. For example, this could be an achievement received after subscribing to the game for a year.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Loyalty</IRI>
+        <Literal xml:lang="en">Loyalty</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Luck</IRI>
+        <Literal xml:lang="en">The vgo:Lucky describes an achievement that is awarded to the player in a lucky situation. An example of vgo:Lucky achievement would be winning in a lottery or throwing “Yahtzee” without re-rolling the dice.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Luck</IRI>
+        <Literal xml:lang="en">Luck</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#MenuEvent</IRI>
+        <Literal xml:lang="en">The vgo:MenuEvent describes an event that is related to interacting with the ingame menu. An example of menu event is muting sounds, changing graphic settings, changing gameplay difficulty or remapping game controls.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#MenuEvent</IRI>
+        <Literal xml:lang="en">menu event</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Minigame</IRI>
+        <Literal xml:lang="en">The vgo:Minigame achievement describes success in mini-games that have been included in a certain game but are not vital for completing the game. An example could be to complete all the Pizza deliveries in GTA minigame or gaining over 100 dollars while playing poker in Red Dead Redemption.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Minigame</IRI>
+        <Literal xml:lang="en">Minigame</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Multiplayer</IRI>
+        <Literal xml:lang="en">The vgo:Multiplayer achievement describes anything that can be awarded to one or multiple players due to their gameplay in multiplayer. For example, this could be winning 10 Team Fortress matches in a row with the same team or getting killed ten times in a row in Counter-Strike.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Multiplayer</IRI>
+        <Literal xml:lang="en">Multiplayer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Paragon</IRI>
+        <Literal xml:lang="en">The vgo:Paragon is a rare achievement that is given only to limited number of players. An example of vgo:Paragon achievement could be the first player to finish a game under 10 hours or the first ten players to complete the game 100% through.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Paragon</IRI>
+        <Literal xml:lang="en">Paragon</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Player</IRI>
+        <Literal xml:lang="en">The vgo:Player describes the entity playing the game. This can be either a human or a computer. vgo:Player class is used to keep a profile of a certain playing entity and to connect all the games, achievements and characters he/she has. The vgo:Player is a subclass of foaf:Person as it contains all relative information of a certain person.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Player</IRI>
+        <Literal xml:lang="en">Player</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#PlayerEvent</IRI>
+        <Literal xml:lang="en">The vgo:PlayerEvent describes a vgo:InstantaneousEvent that is caused by the player. For example jumping in the game, throwing an item or pressing a joystick button.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#PlayerEvent</IRI>
+        <Literal xml:lang="en">player event</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#PlayingArea</IRI>
+        <Literal xml:lang="en">The vgo:PlayingArea is the description of a place where the gameplay takes place. All of the games have some kind of area where they are played in. An example of playing areas could be football field in soccer game, a race track from a racing game or a star system of EVE Online.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#PlayingArea</IRI>
+        <Literal xml:lang="en">playing area</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Session</IRI>
+        <Literal xml:lang="en">The vgo:Session class describes a session of gameplay. A session can be a single round of chess, a round of Counter-Strike, one half-time of soccer or one race of Formula 1. vgo:Session class can be used to store gameplay information, especially for analytical reasons.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Session</IRI>
+        <Literal xml:lang="en">Session</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#SpecialPlayStyle</IRI>
+        <Literal xml:lang="en">The vgo:SpecialPlayStyle achievement is awarded to players after playing a game in special fashion. Often this is something harder than the regular play and requires more player experience to excel in it. An example of vgo:SpecialPlayStyle could be to complete a game without any violence or against a timer.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#SpecialPlayStyle</IRI>
+        <Literal xml:lang="en">special play style</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Tutorial</IRI>
+        <Literal xml:lang="en">The vgo:Tutorial achievement is  awarded to a player for trying out various features of the game. This is often related to learning how to play the game, how the controls work and how the game logic works. An example of vgo:Tutorial could be testing out newly gained special equipment or just playing through the in-game tutorial in the beginning.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Tutorial</IRI>
+        <Literal xml:lang="en">Tutorial</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Veteran</IRI>
+        <Literal xml:lang="en">The vgo:Veteran achievement is an award that is given for accumulating a lot of play hours or game actions. For example, vgo:Veteran could be playing thousand hours of World of Tanks or making 100 goals in ice hockey game.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Veteran</IRI>
+        <Literal xml:lang="en">Veteran</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Virtuosity</IRI>
+        <Literal xml:lang="en">The vgo:Virtuosity describes an achievement that is awarded for playing masterfully in the game. Examples of virtuous play could be finishing the game without saving at all, dying zero times or preventing an opposing team from scoring any goals in a soccer game.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#Virtuosity</IRI>
+        <Literal xml:lang="en">Virtuosity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#endTime</IRI>
+        <Literal xml:lang="en">endTime describes the ending moment in time of a single Session. endTime connects the session to a DateTime value which holds the moment when the session ended.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#endTime</IRI>
+        <Literal xml:lang="en">end time</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#eventName</IRI>
+        <Literal xml:lang="en">name connects InstantaneousEvent a text string. This allows the event to have a name to recognize it for.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#eventName</IRI>
+        <Literal xml:lang="en">event name</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#eventTime</IRI>
+        <Literal xml:lang="en">time describes the connection of InstantaneousEvent happening at a certain moment of time. time Conncets the event to a DateTime value that describes the moment when the event happened.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#eventTime</IRI>
+        <Literal xml:lang="en">event time</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#hasAchievement</IRI>
+        <Literal xml:lang="en">The vgo:hasAchievement property specifies that a game has a specific achievement. A game often contains more than one achievement that can be awarded to the players.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#hasAchievement</IRI>
+        <Literal xml:lang="en">optional</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#hasAchievement</IRI>
+        <Literal xml:lang="en">has achievement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#hasCharacter</IRI>
+        <Literal xml:lang="en">The vgo:hasCharacter property specifies that a game has a specific character. A game can have more than one characters involved.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#hasCharacter</IRI>
+        <Literal xml:lang="en">optional</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#hasCharacter</IRI>
+        <Literal xml:lang="en">has character</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#hasFeature</IRI>
+        <Literal xml:lang="en">The vgo:hasFeature property indicates what is a vgo:Feature (or ability) of a particular vgo:Item. For example, a fire sword, a healing staff or boots of flight connects item to a feature it can have. An item with connection to potable feature would make the item potable.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#hasFeature</IRI>
+        <Literal xml:lang="en">has feature</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#hasGameGenre</IRI>
+        <Literal xml:lang="en">The vgo:hasGameGenre property specifies that a game belongs to a certain game genre. For example, Pong would be an arcade game and Mario a platformer.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#hasGameGenre</IRI>
+        <Literal xml:lang="en">has game genre</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#hasItem</IRI>
+        <Literal xml:lang="en">The vgo:hasItem property specifies that a game has a specific item. A game often contains more than one items.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#hasItem</IRI>
+        <Literal xml:lang="en">optional</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#hasItem</IRI>
+        <Literal xml:lang="en">has item</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#hasLeaderboard</IRI>
+        <Literal xml:lang="en">The vgo:hasLeaderboard specifies that a leaderboard belongs to a particular game. A game can have one or more leaderboards that keep track of ranking of the players. For example a leaderboard could be ranking of who has the most soccer game victories or who has the fastest lap in a Formula 1 game.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#hasLeaderboard</IRI>
+        <Literal xml:lang="en">has leaderboard</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#hasPlayingArea</IRI>
+        <Literal xml:lang="en">The vgo:hasPlayingArea property asserts a gaming area to a specific game. In every game, the gameplay takes place in some playing area.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#hasPlayingArea</IRI>
+        <Literal xml:lang="en">has playing area</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#involvesAchievement</IRI>
+        <Literal xml:lang="en">The vgo:involvesPlayer property specifies that a session involves a specific player. A session may involve more than one player.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#involvesAchievement</IRI>
+        <Literal xml:lang="en">optional</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#involvesAchievement</IRI>
+        <Literal xml:lang="en">involves achievement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#involvesCharacter</IRI>
+        <Literal xml:lang="en">The vgo:involvesCharacter property specifies that a session involves a specific character.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#involvesCharacter</IRI>
+        <Literal xml:lang="en">optional</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#involvesCharacter</IRI>
+        <Literal xml:lang="en">involves character</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#involvesPlayer</IRI>
+        <Literal xml:lang="en">The vgo:involvesPlayer property specifies that a session involves a specific player. A session may involve more than one player.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#involvesPlayer</IRI>
+        <Literal xml:lang="en">optional</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#involvesPlayer</IRI>
+        <Literal xml:lang="en">involves player</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isAchievedInSession</IRI>
+        <Literal xml:lang="en">The property vgo:isAchievedInSession asserts the receiving of an achievement to a certain gameplay session. This enables to keep track of what achievements a player has gained during one gameplay session.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isAchievedInSession</IRI>
+        <Literal xml:lang="en">is achieved in session</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isAchievementInGame</IRI>
+        <Literal xml:lang="en">The property vgo:isAchievementInGame asserts that a specific vgo:Achievement can be earned in a particular vgo:Game. An achievement must belong to a certain game.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isAchievementInGame</IRI>
+        <Literal xml:lang="en">is achievement in game</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isCharacterInGame</IRI>
+        <Literal xml:lang="en">vgo:isCharacterInGame property describes the relation between a vgo:Character and a vgo:Game. a vgo:Character always belongs to a certain game.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isCharacterInGame</IRI>
+        <Literal xml:lang="en">is character in game</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isCharacterInSession</IRI>
+        <Literal xml:lang="en">The vgo:isCharacterInSession property connects the vgo:Character to a vgo:Session. A character participates in a game session (e.g., a football match or a counter strike round) during a period of time. As players can have multiple characters, a character needs to be connected to the session, in order to know which of those characters participated in the certain session.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isCharacterInSession</IRI>
+        <Literal xml:lang="en">is character in session</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isEventAssociatedToPlayer</IRI>
+        <Literal xml:lang="en">The vgo:isEventAssociatedToPlayer property asserts an event to a specific vgo:Player. A player may have caused an event to happen through the actions of his/her character and this property is used to connect the real person to the event.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isEventAssociatedToPlayer</IRI>
+        <Literal xml:lang="en">is event associated to player</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isEventInGame</IRI>
+        <Literal xml:lang="en">The vgo:isEventInGame property asserts an event to a specific game. An event always happens inside a specific a game.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isEventInGame</IRI>
+        <Literal xml:lang="en">is event in game</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isEventInSession</IRI>
+        <Literal xml:lang="en">The vgo:isEventInSession property links an event to a specific gameplay session. An event always happens during a certain session and this property enables to link the events to that session. For example, an event of moving the queen in game of chess should be connected to a session of chess.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isEventInSession</IRI>
+        <Literal xml:lang="en">is event in session</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isEventRelatedToItem</IRI>
+        <Literal xml:lang="en">The vgo:isEventRelatedToItem property asserts an event to a specific item. This property is used to describe an event that includes an item in one way or another. For example, an event where character gains a new sword can be described with this relation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isEventRelatedToItem</IRI>
+        <Literal xml:lang="en">is event related to item</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isEventTriggeredByCharacter</IRI>
+        <Literal xml:lang="en">The vgo:isEventTriggeredByCharacter connects the vgo:InstantaneousEvent to specific vgo:Character. This describes that an event is often caused by a character. The character in question can be either a character controlled by a player or a computer. For example, both player and non-player characters can trigger a character death event.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isEventTriggeredByCharacter</IRI>
+        <Literal xml:lang="en">is event triggered by character</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isFriendWithPlayer</IRI>
+        <Literal xml:lang="en">The vgo:isFriendWithPlayer describes a connection between players. The property is used to model the friends a player has and with whom he might be playing games with. The friends of a player are not bound necessarily to particular game, but can be describe the friendly playing relationship in overall.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isFriendWithPlayer</IRI>
+        <Literal xml:lang="en">is friend with player</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isItemInGame</IRI>
+        <Literal xml:lang="en">The vgo:isItemInGame is used to specify which item belongs to a particular game. An item cannot exist alone and thus should always be associated to a certain game.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isItemInGame</IRI>
+        <Literal xml:lang="en">is item in game</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isLeaderboardInGame</IRI>
+        <Literal xml:lang="en">The vgo:isLeaderboardInGame property specifies that a leaderboard is from a specific game.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isLeaderboardInGame</IRI>
+        <Literal xml:lang="en">optional</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isLeaderboardInGame</IRI>
+        <Literal xml:lang="en">is leaderboard in game</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isPlayerInSession</IRI>
+        <Literal xml:lang="en">The vgo:isPlayerInSession property connects vgo:Player to a specific vgo:Session. This property is used to keep track of the gameplay sessions the player has played and what has happened in those sessions. For example vgo:Player may have participated in a this can be a one round of Counter-Strike or played one hour session of mario.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isPlayerInSession</IRI>
+        <Literal xml:lang="en">is player in session</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isSessionInGame</IRI>
+        <Literal xml:lang="en">The vgo:isSessionInGame property links a vgo:Session to a certain vgo:Game. Each gameplay session must belong to a certain game.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#isSessionInGame</IRI>
+        <Literal xml:lang="en">is session in game</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#livesIn</IRI>
+        <Literal xml:lang="en">The vgo:livesIn describes the connection between a player and his place of existence in the real-world. A vgo:Player is connected to wgs84:SpatialThing as that has descriptions for places where people live and contains more detailed information of them, such as continents and regions.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#livesIn</IRI>
+        <Literal xml:lang="en">lives in</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#ownsAchievement</IRI>
+        <Literal xml:lang="en">The vgo:ownsAchievement links the vgo:Player to the particular vgo:Achievement earned in a game.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#ownsAchievement</IRI>
+        <Literal xml:lang="en">owns achievement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#ownsCharacter</IRI>
+        <Literal xml:lang="en">The vgo:ownsCharacter property asserts which characters are owned by a specific player. A player can have multiple characters in one game and this connection is used to define all the different characters a player could be playing. Even though a player deletes, trades or loses his/her character in any way, the connection can be kept to contain the player’s history of owned characters.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#ownsCharacter</IRI>
+        <Literal xml:lang="en">owns character</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#ownsItem</IRI>
+        <Literal xml:lang="en">The vgo:ownsItem describes ownership of an item. A vgo:Item is always owned by a certain vgo:Character. A vgo:Character can own multiple vgo:Items and this relationship is used to keep track of the character’s owned items. Even though players may lose items, the vgo:ownsItem connection is still held with the item. This approach allows to keep track of character’s history of owned items.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#ownsItem</IRI>
+        <Literal xml:lang="en">owns item</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#playsGame</IRI>
+        <Literal xml:lang="en">the vgo:playsGame property asserts which games has the vgo:Player played at any point of time.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#playsGame</IRI>
+        <Literal xml:lang="en">plays game</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#purchasesGameOffering</IRI>
+        <Literal xml:lang="en">The vgo:purchasesGameOffering property aseerts a vgo:InAppPurchaseEvent to a specific vgo:GameProduct. This property describes what is purchased by the in-app purchase event that the player has done.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#purchasesGameOffering</IRI>
+        <Literal xml:lang="en">purchases game offering</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#releaseDate</IRI>
+        <Literal xml:lang="en">releaseDate connects a game to a time which describes the release date of the game.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#releaseDate</IRI>
+        <Literal xml:lang="en">release date</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#startTime</IRI>
+        <Literal xml:lang="en">startTime describes the starting moment in time of a single Session. startTime connects the session to a DateTime value which holds the moment when the session started.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#startTime</IRI>
+        <Literal xml:lang="en">start time</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#unlocksAchievement</IRI>
+        <Literal xml:lang="en">The vgo:unlocksAchievement property asserts an event to a certain achievement. An achievement is always unlocked as a consequence of some event. For example, eating the 100th piece of cake unlocks the “Cake Eater” achievement.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#unlocksAchievement</IRI>
+        <Literal xml:lang="en">unlocks achievement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://purl.org/net/VideoGameOntology#username</IRI>
+        <Literal xml:lang="en">The username connects player to a text string which describes the username a player has.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://purl.org/net/VideoGameOntology#username</IRI>
+        <Literal xml:lang="en">username</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="owl:someValuesFrom"/>
+        <AnonymousIndividual nodeID="_:genid2147483730"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="owl:allValuesFrom"/>
+        <AnonymousIndividual nodeID="_:genid2147483731"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="owl:allValuesFrom"/>
+        <AnonymousIndividual nodeID="_:genid2147483732"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="owl:someValuesFrom"/>
+        <AnonymousIndividual nodeID="_:genid2147483733"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="owl:someValuesFrom"/>
+        <AnonymousIndividual nodeID="_:genid2147483734"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
