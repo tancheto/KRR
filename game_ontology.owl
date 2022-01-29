@@ -100,7 +100,6 @@
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="#need">
-  <rdfs:subPropertyOf rdf:resource="#require"/>
   <rdfs:domain rdf:resource="#BoardGame"/>
   <rdfs:range>
     <owl:Class>
@@ -113,6 +112,7 @@
       </owl:unionOf>
     </owl:Class>
   </rdfs:range>
+  <rdfs:subPropertyOf rdf:resource="#require"/>
 </owl:ObjectProperty>
 
 <owl:DatatypeProperty rdf:about="#has_duration">
@@ -279,22 +279,24 @@
 
 <owl:Class rdf:about="#Fan">
   <rdfs:subClassOf rdf:resource="#Spectator"/>
-  <rdfs:subClassOf>
+  <owl:equivalentClass>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has_interest_in"/>
-      <owl:allValuesFrom rdf:resource="#Game"/>
+      <owl:onClass rdf:resource="#Game"/>
+      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
-  </rdfs:subClassOf>
+  </owl:equivalentClass>
 </owl:Class>
 
 <owl:Class rdf:about="#Kibitzer">
   <rdfs:subClassOf rdf:resource="#Spectator"/>
-  <rdfs:subClassOf>
+  <owl:equivalentClass>
     <owl:Class>
       <owl:intersectionOf rdf:parseType="Collection">
         <owl:Restriction>
           <owl:onProperty rdf:resource="#watches"/>
-          <owl:allValuesFrom rdf:resource="#Game"/>
+          <owl:onClass rdf:resource="#Game"/>
+          <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
         </owl:Restriction>
         <owl:Restriction>
           <owl:onProperty rdf:resource="#has_to_remain_silent"/>
@@ -302,29 +304,29 @@
         </owl:Restriction>
       </owl:intersectionOf>
     </owl:Class>
-  </rdfs:subClassOf>
+  </owl:equivalentClass>
 </owl:Class>
 
 <owl:Class rdf:about="#SinglePlayerGame">
   <rdfs:subClassOf rdf:resource="#Game"/>
-  <rdfs:subClassOf>
+  <owl:equivalentClass>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#played_by"/>
       <owl:onClass rdf:resource="#Player"/>
       <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
     </owl:Restriction>
-  </rdfs:subClassOf>
+  </owl:equivalentClass>
 </owl:Class>
 
 <owl:Class rdf:about="#MultiPlayerGame">
   <rdfs:subClassOf rdf:resource="#Game"/>
-  <rdfs:subClassOf>
+  <owl:equivalentClass>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#played_by"/>
       <owl:onClass rdf:resource="#Player"/>
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
     </owl:Restriction>
-  </rdfs:subClassOf>
+  </owl:equivalentClass>
 </owl:Class>
 
 <owl:Class rdf:about="#IntelectualGame">
@@ -359,7 +361,7 @@
 
 <owl:Class rdf:about="#SportGame">
   <rdfs:subClassOf rdf:resource="#PhysicalActivityGame"/>
-  <rdfs:subClassOf>
+  <owl:equivalentClass>
     <owl:Class>
       <owl:intersectionOf rdf:parseType="Collection">
         <owl:Restriction>
@@ -372,7 +374,7 @@
         </owl:Restriction>
       </owl:intersectionOf>
     </owl:Class>
-  </rdfs:subClassOf>
+  </owl:equivalentClass>
 </owl:Class>
 
 <owl:Class rdf:about="#IndividualSportGame">
@@ -397,7 +399,7 @@
 
 <owl:Class rdf:about="#ProfessionalBallGameOnLawn">
   <rdfs:subClassOf rdf:resource="#ProfessionalSportGame"/>
-  <rdfs:subClassOf>
+  <owl:equivalentClass>
     <owl:Class>
       <owl:intersectionOf rdf:parseType="Collection">
         <owl:Restriction>
@@ -411,7 +413,7 @@
         </owl:Restriction>
       </owl:intersectionOf>
     </owl:Class>
-  </rdfs:subClassOf>
+  </owl:equivalentClass>
 </owl:Class>
 
 <owl:Class rdf:about="#PlayingCard">
@@ -432,6 +434,7 @@
       <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="#Equipment"/>
 </owl:Class>
 
 <owl:Class rdf:about="#CardSuit">
@@ -473,58 +476,57 @@
 
 <owl:Class rdf:about="#VideoGame">
   <rdfs:subClassOf rdf:resource="#Game"/>
-  <rdfs:subClassOf>
-    <owl:Class>
-      <owl:intersectionOf rdf:parseType="Collection">
-        <owl:Restriction>
-          <owl:onProperty rdf:resource="#require"/>
-          <owl:onClass rdf:resource="#Computer"/>
-          <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-        </owl:Restriction>
-        <owl:Restriction>
-          <owl:onProperty rdf:resource="#require"/>
-          <owl:someValuesFrom rdf:resource="#Table"/>
-        </owl:Restriction>
-      </owl:intersectionOf>
-    </owl:Class>
-  </rdfs:subClassOf>
+  <owl:equivalentClass>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#require"/>
+      <owl:onClass rdf:resource="#Computer"/>
+      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </owl:Restriction>
+  </owl:equivalentClass>
 </owl:Class>
 
 <owl:Class rdf:about="#TableTopGame">
-  <rdfs:subClassOf rdf:resource="#LogicalGame"/>
   <rdfs:subClassOf rdf:resource="#StrategyGame"/>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#require"/>
-      <owl:onClass rdf:resource="#Table"/>
-      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-    </owl:Restriction>
-  </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="#LogicalGame"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#StrategyGame"/>
+        <rdf:Description rdf:about="#LogicalGame"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#require"/>
+          <owl:onClass rdf:resource="#Table"/>
+          <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
 </owl:Class>
 
 <owl:Class rdf:about="#BoardGame">
   <rdfs:subClassOf rdf:resource="#TableTopGame"/>
-  <rdfs:subClassOf>
+  <owl:equivalentClass>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#played_on"/>
-      <owl:allValuesFrom rdf:resource="#Board"/>
+      <owl:onClass rdf:resource="#Board"/>
+      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
-  </rdfs:subClassOf>
+  </owl:equivalentClass>
 </owl:Class>
 
 <owl:Class rdf:about="#DiceGame">
   <rdfs:subClassOf rdf:resource="#TableTopGame"/>
-  <rdfs:subClassOf>
+  <owl:equivalentClass>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#require"/>
       <owl:someValuesFrom rdf:resource="#Dice"/>
     </owl:Restriction>
-  </rdfs:subClassOf>
+  </owl:equivalentClass>
 </owl:Class>
 
 <owl:Class rdf:about="#PaperAndPencilGame">
   <rdfs:subClassOf rdf:resource="#TableTopGame"/>
-  <rdfs:subClassOf>
+  <owl:equivalentClass>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#require"/>
       <owl:someValuesFrom>
@@ -536,17 +538,17 @@
         </owl:Class>
       </owl:someValuesFrom>
     </owl:Restriction>
-  </rdfs:subClassOf>
+  </owl:equivalentClass>
 </owl:Class>
 
 <owl:Class rdf:about="#CardGame">
   <rdfs:subClassOf rdf:resource="#TableTopGame"/>
-  <rdfs:subClassOf>
+  <owl:equivalentClass>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#require"/>
       <owl:someValuesFrom rdf:resource="#Card"/>
     </owl:Restriction>
-  </rdfs:subClassOf>
+  </owl:equivalentClass>
 </owl:Class>
 
 <CardSuit rdf:about="#Spades">
@@ -631,14 +633,16 @@
 
 <Equipment rdf:about="#tennis_racket">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#SportEquipment"/>
 </Equipment>
 
 <ProfessionalSportGame rdf:about="#tennis">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <require rdf:resource="#tennis_racket"/>
-  <require rdf:resource="#tennis_ball"/>
   <played_on rdf:resource="#tennis_court_clay"/>
   <played_on rdf:resource="#tennis_court_hard"/>
+  <require rdf:resource="#tennis_racket"/>
+  <require rdf:resource="#tennis_ball"/>
+  <is_professional rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_professional>
 </ProfessionalSportGame>
 
 <Lawn rdf:about="#green">
@@ -655,17 +659,20 @@
 
 <ProfessionalBallGameOnLawn rdf:about="#golf">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#IndividualSportGame"/>
+  <played_on rdf:resource="#green"/>
   <require rdf:resource="#golf_ball"/>
   <require rdf:resource="#golf_stick"/>
-  <played_on rdf:resource="#green"/>
-  <rdf:type rdf:resource="#IndividualSportGame"/>
+  <is_professional rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_professional>
 </ProfessionalBallGameOnLawn>
 
 <ProfessionalBallGameOnLawn rdf:about="#football">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   <rdf:type rdf:resource="#TeamSportGame"/>
-  <has_referee rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</has_referee>
   <has_duration rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">90</has_duration>
+  <is_professional rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_professional>
+  <has_team rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</has_team>
+  <has_referee rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</has_referee>
 </ProfessionalBallGameOnLawn>
 
 <Table rdf:about="#desk">
@@ -689,8 +696,8 @@
 
 <Pencil rdf:about="#pencil">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <has_color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">red</has_color>
   <has_color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">blue</has_color>
+  <has_color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">red</has_color>
 </Pencil>
 
 <PaperAndPencilGame rdf:about="#tic_tac_toe">
@@ -730,13 +737,6 @@
 
 <BoardGame rdf:about="#chess">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <played_on rdf:resource="#chess_board"/>
-  <need rdf:resource="#queen"/>
-  <need rdf:resource="#knight"/>
-  <need rdf:resource="#bishop"/>
-  <need rdf:resource="#pawn"/>
-  <need rdf:resource="#rook"/>
-  <need rdf:resource="#king"/>
   <rdf:type rdf:resource="#MultiPlayerGame"/>
   <rdf:type>
     <owl:Restriction>
@@ -750,6 +750,21 @@
       <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</owl:hasValue>
     </owl:Restriction>
   </rdf:type>
+  <played_on rdf:resource="#chess_board"/>
+  <require rdf:resource="#king"/>
+  <require rdf:resource="#pawn"/>
+  <require rdf:resource="#knight"/>
+  <require rdf:resource="#bishop"/>
+  <require rdf:resource="#rook"/>
+  <require rdf:resource="#queen"/>
+  <need rdf:resource="#knight"/>
+  <need rdf:resource="#rook"/>
+  <need rdf:resource="#pawn"/>
+  <need rdf:resource="#queen"/>
+  <need rdf:resource="#bishop"/>
+  <need rdf:resource="#king"/>
+  <has_players_number rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</has_players_number>
+  <has_opponent rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</has_opponent>
 </BoardGame>
 
 <KnowledgeGame rdf:about="#who_wants_to_be_a_millionaire">
@@ -768,10 +783,12 @@
 
 <IntelectualGame rdf:about="#go">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <require rdf:resource="#table"/>
-  <played_on rdf:resource="#go_board"/>
   <rdf:type rdf:resource="#LogicalGame"/>
   <rdf:type rdf:resource="#StrategyGame"/>
+  <rdf:type rdf:resource="#BoardGame"/>
+  <rdf:type rdf:resource="#MultiPlayerGame"/>
+  <played_on rdf:resource="#go_board"/>
+  <require rdf:resource="#table"/>
   <has_players_number rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</has_players_number>
   <has_opponent rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</has_opponent>
 </IntelectualGame>
@@ -797,27 +814,42 @@
 
 <Kibitzer rdf:about="#kibitzer">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#Fan"/>
   <watches rdf:resource="#football"/>
   <has_interest_in rdf:resource="#Hardstone"/>
+  <has_to_remain_silent rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</has_to_remain_silent>
 </Kibitzer>
 
 <Fan rdf:about="#fan">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <watches rdf:resource="#tennis"/>
   <has_favourite rdf:resource="#West"/>
   <has_favourite rdf:resource="#East"/>
-  <watches rdf:resource="#tennis"/>
 </Fan>
 
 <Spectator rdf:about="#spectator">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <has_interest_in rdf:resource="#chess"/>
+  <rdf:type rdf:resource="#Fan"/>
   <has_interest_in rdf:resource="#football"/>
+  <has_interest_in rdf:resource="#chess"/>
 </Spectator>
 
 <PlayingCard rdf:about="#Two_of_Spades">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   <has_suit rdf:resource="#Spades"/>
   <has_value rdf:resource="#Two"/>
+  <has_lower_value_than rdf:resource="#King_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Six_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Seven_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Nine_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Four_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Eight_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Five_of_Spades"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Three_of_Spades">
@@ -825,6 +857,17 @@
   <has_suit rdf:resource="#Spades"/>
   <has_value rdf:resource="#Three"/>
   <has_greater_value_than rdf:resource="#Two_of_Spades"/>
+  <has_lower_value_than rdf:resource="#King_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Six_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Seven_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Nine_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Eight_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Five_of_Spades"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Four_of_Spades">
@@ -832,6 +875,17 @@
   <has_suit rdf:resource="#Spades"/>
   <has_value rdf:resource="#Four"/>
   <has_greater_value_than rdf:resource="#Three_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Two_of_Spades"/>
+  <has_lower_value_than rdf:resource="#King_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Six_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Seven_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Nine_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Eight_of_Spades"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Five_of_Spades">
@@ -839,6 +893,17 @@
   <has_suit rdf:resource="#Spades"/>
   <has_value rdf:resource="#Five"/>
   <has_greater_value_than rdf:resource="#Four_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Two_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Three_of_Spades"/>
+  <has_lower_value_than rdf:resource="#King_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Seven_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Nine_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Eight_of_Spades"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Six_of_Spades">
@@ -846,6 +911,17 @@
   <has_suit rdf:resource="#Spades"/>
   <has_value rdf:resource="#Six"/>
   <has_greater_value_than rdf:resource="#Five_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Two_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Four_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Three_of_Spades"/>
+  <has_lower_value_than rdf:resource="#King_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Nine_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Eight_of_Spades"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Seven_of_Spades">
@@ -853,6 +929,17 @@
   <has_suit rdf:resource="#Spades"/>
   <has_value rdf:resource="#Seven"/>
   <has_greater_value_than rdf:resource="#Six_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Two_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Four_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Three_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Five_of_Spades"/>
+  <has_lower_value_than rdf:resource="#King_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Nine_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Spades"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Eight_of_Spades">
@@ -860,6 +947,17 @@
   <has_suit rdf:resource="#Spades"/>
   <has_value rdf:resource="#Eight"/>
   <has_greater_value_than rdf:resource="#Seven_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Two_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Six_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Four_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Three_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Five_of_Spades"/>
+  <has_lower_value_than rdf:resource="#King_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Spades"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Nine_of_Spades">
@@ -867,6 +965,17 @@
   <has_suit rdf:resource="#Spades"/>
   <has_value rdf:resource="#Nine"/>
   <has_greater_value_than rdf:resource="#Eight_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Two_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Six_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Seven_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Four_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Three_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Five_of_Spades"/>
+  <has_lower_value_than rdf:resource="#King_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Spades"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Ten_of_Spades">
@@ -874,6 +983,17 @@
   <has_suit rdf:resource="#Spades"/>
   <has_value rdf:resource="#Ten"/>
   <has_greater_value_than rdf:resource="#Nine_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Two_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Six_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Seven_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Four_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Three_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Eight_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Five_of_Spades"/>
+  <has_lower_value_than rdf:resource="#King_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Spades"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Jack_of_Spades">
@@ -881,6 +1001,17 @@
   <has_suit rdf:resource="#Spades"/>
   <has_value rdf:resource="#Jack"/>
   <has_greater_value_than rdf:resource="#Ten_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Two_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Six_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Nine_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Seven_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Four_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Three_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Eight_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Five_of_Spades"/>
+  <has_lower_value_than rdf:resource="#King_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Spades"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Queen_of_Spades">
@@ -888,6 +1019,17 @@
   <has_suit rdf:resource="#Spades"/>
   <has_value rdf:resource="#Queen"/>
   <has_greater_value_than rdf:resource="#Jack_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Ten_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Two_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Six_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Nine_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Seven_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Four_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Three_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Eight_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Five_of_Spades"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Spades"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#King_of_Spades">
@@ -895,6 +1037,17 @@
   <has_suit rdf:resource="#Spades"/>
   <has_value rdf:resource="#King"/>
   <has_greater_value_than rdf:resource="#Queen_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Jack_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Ten_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Two_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Six_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Nine_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Seven_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Four_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Three_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Eight_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Five_of_Spades"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Ace_of_Spades">
@@ -902,12 +1055,36 @@
   <has_suit rdf:resource="#Spades"/>
   <has_value rdf:resource="#Ace"/>
   <has_greater_value_than rdf:resource="#King_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Jack_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Ten_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Two_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Six_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Queen_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Nine_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Seven_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Four_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Three_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Eight_of_Spades"/>
+  <has_greater_value_than rdf:resource="#Five_of_Spades"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Two_of_Hearts">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   <has_suit rdf:resource="#Hearts"/>
   <has_value rdf:resource="#Two"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Seven_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Four_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Six_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Eight_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Nine_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#King_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Five_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Hearts"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Three_of_Hearts">
@@ -915,6 +1092,17 @@
   <has_suit rdf:resource="#Hearts"/>
   <has_value rdf:resource="#Three"/>
   <has_greater_value_than rdf:resource="#Two_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Seven_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Six_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Eight_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Nine_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#King_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Five_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Hearts"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Four_of_Hearts">
@@ -922,6 +1110,17 @@
   <has_suit rdf:resource="#Hearts"/>
   <has_value rdf:resource="#Four"/>
   <has_greater_value_than rdf:resource="#Three_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Two_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Seven_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Six_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Eight_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Nine_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#King_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Hearts"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Five_of_Hearts">
@@ -929,6 +1128,17 @@
   <has_suit rdf:resource="#Hearts"/>
   <has_value rdf:resource="#Five"/>
   <has_greater_value_than rdf:resource="#Four_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Three_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Two_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Seven_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Eight_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Nine_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#King_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Hearts"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Six_of_Hearts">
@@ -936,6 +1146,17 @@
   <has_suit rdf:resource="#Hearts"/>
   <has_value rdf:resource="#Six"/>
   <has_greater_value_than rdf:resource="#Five_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Three_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Four_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Two_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Eight_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Nine_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#King_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Hearts"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Seven_of_Hearts">
@@ -943,6 +1164,17 @@
   <has_suit rdf:resource="#Hearts"/>
   <has_value rdf:resource="#Seven"/>
   <has_greater_value_than rdf:resource="#Six_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Three_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Four_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Two_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Five_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Nine_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#King_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Hearts"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Eight_of_Hearts">
@@ -950,6 +1182,17 @@
   <has_suit rdf:resource="#Hearts"/>
   <has_value rdf:resource="#Eight"/>
   <has_greater_value_than rdf:resource="#Seven_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Three_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Four_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Six_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Two_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Five_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#King_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Hearts"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Nine_of_Hearts">
@@ -957,6 +1200,17 @@
   <has_suit rdf:resource="#Hearts"/>
   <has_value rdf:resource="#Nine"/>
   <has_greater_value_than rdf:resource="#Eight_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Three_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Seven_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Four_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Six_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Two_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Five_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#King_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Hearts"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Ten_of_Hearts">
@@ -964,6 +1218,17 @@
   <has_suit rdf:resource="#Hearts"/>
   <has_value rdf:resource="#Ten"/>
   <has_greater_value_than rdf:resource="#Nine_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Three_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Seven_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Four_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Six_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Two_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Eight_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Five_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#King_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Hearts"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Jack_of_Hearts">
@@ -971,6 +1236,17 @@
   <has_suit rdf:resource="#Hearts"/>
   <has_value rdf:resource="#Jack"/>
   <has_greater_value_than rdf:resource="#Ten_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Three_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Seven_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Four_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Six_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Two_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Eight_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Nine_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Five_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#King_of_Hearts"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Queen_of_Hearts">
@@ -978,6 +1254,17 @@
   <has_suit rdf:resource="#Hearts"/>
   <has_value rdf:resource="#Queen"/>
   <has_greater_value_than rdf:resource="#Jack_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Three_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Seven_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Four_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Ten_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Six_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Two_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Eight_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Nine_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Five_of_Hearts"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Hearts"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#King_of_Hearts">
@@ -985,6 +1272,17 @@
   <has_suit rdf:resource="#Hearts"/>
   <has_value rdf:resource="#King"/>
   <has_greater_value_than rdf:resource="#Queen_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Three_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Seven_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Four_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Ten_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Six_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Two_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Eight_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Nine_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Jack_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Five_of_Hearts"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Ace_of_Hearts">
@@ -992,12 +1290,36 @@
   <has_suit rdf:resource="#Hearts"/>
   <has_value rdf:resource="#Ace"/>
   <has_greater_value_than rdf:resource="#King_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Three_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Seven_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Four_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Ten_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Six_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Two_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Eight_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Nine_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Queen_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Jack_of_Hearts"/>
+  <has_greater_value_than rdf:resource="#Five_of_Hearts"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Two_of_Diamonds">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   <has_suit rdf:resource="#Diamonds"/>
   <has_value rdf:resource="#Two"/>
+  <has_lower_value_than rdf:resource="#Nine_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Eight_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Seven_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#King_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Five_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Four_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Six_of_Diamonds"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Three_of_Diamonds">
@@ -1005,6 +1327,17 @@
   <has_suit rdf:resource="#Diamonds"/>
   <has_value rdf:resource="#Three"/>
   <has_greater_value_than rdf:resource="#Two_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Nine_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Eight_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Seven_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#King_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Five_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Six_of_Diamonds"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Four_of_Diamonds">
@@ -1012,6 +1345,17 @@
   <has_suit rdf:resource="#Diamonds"/>
   <has_value rdf:resource="#Four"/>
   <has_greater_value_than rdf:resource="#Three_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Two_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Nine_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Eight_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Seven_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#King_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Six_of_Diamonds"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Five_of_Diamonds">
@@ -1019,6 +1363,17 @@
   <has_suit rdf:resource="#Diamonds"/>
   <has_value rdf:resource="#Five"/>
   <has_greater_value_than rdf:resource="#Four_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Two_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Three_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Nine_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Eight_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Seven_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#King_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Diamonds"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Six_of_Diamonds">
@@ -1026,6 +1381,17 @@
   <has_suit rdf:resource="#Diamonds"/>
   <has_value rdf:resource="#Six"/>
   <has_greater_value_than rdf:resource="#Five_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Two_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Three_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Four_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Nine_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Eight_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#King_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Diamonds"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Seven_of_Diamonds">
@@ -1033,6 +1399,17 @@
   <has_suit rdf:resource="#Diamonds"/>
   <has_value rdf:resource="#Seven"/>
   <has_greater_value_than rdf:resource="#Six_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Two_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Three_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Five_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Four_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Nine_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#King_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Diamonds"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Eight_of_Diamonds">
@@ -1040,6 +1417,17 @@
   <has_suit rdf:resource="#Diamonds"/>
   <has_value rdf:resource="#Eight"/>
   <has_greater_value_than rdf:resource="#Seven_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Two_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Three_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Five_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Four_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Six_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#King_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Diamonds"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Nine_of_Diamonds">
@@ -1047,6 +1435,17 @@
   <has_suit rdf:resource="#Diamonds"/>
   <has_value rdf:resource="#Nine"/>
   <has_greater_value_than rdf:resource="#Eight_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Seven_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Two_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Three_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Five_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Four_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Six_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#King_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Diamonds"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Ten_of_Diamonds">
@@ -1054,6 +1453,17 @@
   <has_suit rdf:resource="#Diamonds"/>
   <has_value rdf:resource="#Ten"/>
   <has_greater_value_than rdf:resource="#Nine_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Eight_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Seven_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Two_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Three_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Five_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Four_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Six_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#King_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Diamonds"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Jack_of_Diamonds">
@@ -1061,6 +1471,17 @@
   <has_suit rdf:resource="#Diamonds"/>
   <has_value rdf:resource="#Jack"/>
   <has_greater_value_than rdf:resource="#Ten_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Nine_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Eight_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Seven_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Two_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Three_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Five_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Four_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Six_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#King_of_Diamonds"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Queen_of_Diamonds">
@@ -1068,6 +1489,17 @@
   <has_suit rdf:resource="#Diamonds"/>
   <has_value rdf:resource="#Queen"/>
   <has_greater_value_than rdf:resource="#Jack_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Nine_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Eight_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Seven_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Ten_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Two_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Three_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Five_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Four_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Six_of_Diamonds"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Diamonds"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#King_of_Diamonds">
@@ -1075,6 +1507,17 @@
   <has_suit rdf:resource="#Diamonds"/>
   <has_value rdf:resource="#King"/>
   <has_greater_value_than rdf:resource="#Queen_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Nine_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Eight_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Seven_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Ten_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Two_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Three_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Five_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Jack_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Four_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Six_of_Diamonds"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Ace_of_Diamonds">
@@ -1082,12 +1525,36 @@
   <has_suit rdf:resource="#Diamonds"/>
   <has_value rdf:resource="#Ace"/>
   <has_greater_value_than rdf:resource="#King_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Nine_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Eight_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Seven_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Ten_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Two_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Three_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Queen_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Five_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Jack_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Four_of_Diamonds"/>
+  <has_greater_value_than rdf:resource="#Six_of_Diamonds"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Two_of_Clubs">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   <has_suit rdf:resource="#Clubs"/>
   <has_value rdf:resource="#Two"/>
+  <has_lower_value_than rdf:resource="#Six_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Seven_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Eight_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#King_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Four_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Five_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Nine_of_Clubs"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Three_of_Clubs">
@@ -1095,6 +1562,17 @@
   <has_suit rdf:resource="#Clubs"/>
   <has_value rdf:resource="#Three"/>
   <has_greater_value_than rdf:resource="#Two_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Six_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Seven_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Eight_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#King_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Five_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Nine_of_Clubs"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Four_of_Clubs">
@@ -1102,6 +1580,17 @@
   <has_suit rdf:resource="#Clubs"/>
   <has_value rdf:resource="#Four"/>
   <has_greater_value_than rdf:resource="#Three_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Two_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Six_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Seven_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Eight_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#King_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Nine_of_Clubs"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Five_of_Clubs">
@@ -1109,6 +1598,17 @@
   <has_suit rdf:resource="#Clubs"/>
   <has_value rdf:resource="#Five"/>
   <has_greater_value_than rdf:resource="#Four_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Two_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Three_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Seven_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Eight_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#King_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Nine_of_Clubs"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Six_of_Clubs">
@@ -1116,6 +1616,17 @@
   <has_suit rdf:resource="#Clubs"/>
   <has_value rdf:resource="#Six"/>
   <has_greater_value_than rdf:resource="#Five_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Two_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Four_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Three_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Eight_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#King_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Nine_of_Clubs"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Seven_of_Clubs">
@@ -1123,6 +1634,17 @@
   <has_suit rdf:resource="#Clubs"/>
   <has_value rdf:resource="#Seven"/>
   <has_greater_value_than rdf:resource="#Six_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Two_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Four_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Five_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Three_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#King_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Nine_of_Clubs"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Eight_of_Clubs">
@@ -1130,6 +1652,17 @@
   <has_suit rdf:resource="#Clubs"/>
   <has_value rdf:resource="#Eight"/>
   <has_greater_value_than rdf:resource="#Seven_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Two_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Six_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Four_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Five_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Three_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#King_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Ten_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Clubs"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Nine_of_Clubs">
@@ -1137,6 +1670,17 @@
   <has_suit rdf:resource="#Clubs"/>
   <has_value rdf:resource="#Nine"/>
   <has_greater_value_than rdf:resource="#Eight_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Two_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Six_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Seven_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Four_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Five_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Three_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Jack_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#King_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Clubs"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Ten_of_Clubs">
@@ -1144,6 +1688,17 @@
   <has_suit rdf:resource="#Clubs"/>
   <has_value rdf:resource="#Ten"/>
   <has_greater_value_than rdf:resource="#Nine_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Two_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Six_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Seven_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Eight_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Four_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Five_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Three_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#King_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Queen_of_Clubs"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Jack_of_Clubs">
@@ -1151,6 +1706,17 @@
   <has_suit rdf:resource="#Clubs"/>
   <has_value rdf:resource="#Jack"/>
   <has_greater_value_than rdf:resource="#Ten_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Two_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Six_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Seven_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Eight_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Four_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Five_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Three_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Nine_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#King_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Clubs"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Queen_of_Clubs">
@@ -1158,6 +1724,17 @@
   <has_suit rdf:resource="#Clubs"/>
   <has_value rdf:resource="#Queen"/>
   <has_greater_value_than rdf:resource="#Jack_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Two_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Six_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Seven_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Eight_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Four_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Five_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Three_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Ten_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Nine_of_Clubs"/>
+  <has_lower_value_than rdf:resource="#Ace_of_Clubs"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#King_of_Clubs">
@@ -1165,6 +1742,17 @@
   <has_suit rdf:resource="#Clubs"/>
   <has_value rdf:resource="#King"/>
   <has_greater_value_than rdf:resource="#Queen_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Two_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Six_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Seven_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Eight_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Jack_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Four_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Five_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Three_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Ten_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Nine_of_Clubs"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <PlayingCard rdf:about="#Ace_of_Clubs">
@@ -1172,68 +1760,80 @@
   <has_suit rdf:resource="#Clubs"/>
   <has_value rdf:resource="#Ace"/>
   <has_greater_value_than rdf:resource="#King_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Two_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Six_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Seven_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Eight_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Jack_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Four_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Five_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Three_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Queen_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Ten_of_Clubs"/>
+  <has_greater_value_than rdf:resource="#Nine_of_Clubs"/>
+  <is_normal_card rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</is_normal_card>
 </PlayingCard>
 
 <CardGame rdf:about="#Bridge">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <played_by rdf:resource="#South"/>
-  <played_by rdf:resource="#North"/>
-  <played_by rdf:resource="#East"/>
-  <played_by rdf:resource="#West"/>
-  <watched_by rdf:resource="#fan"/>
-  <watched_by rdf:resource="#kibitzer"/>
-  <require rdf:resource="#Ten_of_Diamonds"/>
-  <require rdf:resource="#Eight_of_Hearts"/>
-  <require rdf:resource="#Queen_of_Spades"/>
-  <require rdf:resource="#Queen_of_Hearts"/>
-  <require rdf:resource="#Four_of_Diamonds"/>
-  <require rdf:resource="#Nine_of_Diamonds"/>
-  <require rdf:resource="#King_of_Clubs"/>
-  <require rdf:resource="#Two_of_Hearts"/>
-  <require rdf:resource="#Five_of_Diamonds"/>
-  <require rdf:resource="#Six_of_Spades"/>
-  <require rdf:resource="#Three_of_Diamonds"/>
-  <require rdf:resource="#Jack_of_Diamonds"/>
-  <require rdf:resource="#Six_of_Clubs"/>
-  <require rdf:resource="#Jack_of_Hearts"/>
-  <require rdf:resource="#Three_of_Clubs"/>
-  <require rdf:resource="#Five_of_Hearts"/>
-  <require rdf:resource="#King_of_Diamonds"/>
-  <require rdf:resource="#Six_of_Hearts"/>
-  <require rdf:resource="#Ace_of_Clubs"/>
-  <require rdf:resource="#Eight_of_Diamonds"/>
-  <require rdf:resource="#Six_of_Diamonds"/>
-  <require rdf:resource="#Jack_of_Clubs"/>
-  <require rdf:resource="#Eight_of_Spades"/>
-  <require rdf:resource="#Five_of_Clubs"/>
-  <require rdf:resource="#Ace_of_Diamonds"/>
-  <require rdf:resource="#Eight_of_Clubs"/>
-  <require rdf:resource="#Queen_of_Clubs"/>
-  <require rdf:resource="#Seven_of_Hearts"/>
-  <require rdf:resource="#Nine_of_Spades"/>
-  <require rdf:resource="#Queen_of_Diamonds"/>
-  <require rdf:resource="#Ace_of_Spades"/>
-  <require rdf:resource="#Four_of_Clubs"/>
-  <require rdf:resource="#Two_of_Clubs"/>
   <require rdf:resource="#Ace_of_Hearts"/>
-  <require rdf:resource="#Jack_of_Spades"/>
-  <require rdf:resource="#Seven_of_Diamonds"/>
   <require rdf:resource="#Two_of_Diamonds"/>
-  <require rdf:resource="#Nine_of_Clubs"/>
-  <require rdf:resource="#Seven_of_Spades"/>
-  <require rdf:resource="#Nine_of_Hearts"/>
-  <require rdf:resource="#Two_of_Spades"/>
-  <require rdf:resource="#Ten_of_Clubs"/>
-  <require rdf:resource="#Three_of_Spades"/>
-  <require rdf:resource="#Four_of_Spades"/>
-  <require rdf:resource="#Three_of_Hearts"/>
-  <require rdf:resource="#Five_of_Spades"/>
-  <require rdf:resource="#King_of_Spades"/>
-  <require rdf:resource="#Ten_of_Hearts"/>
-  <require rdf:resource="#Seven_of_Clubs"/>
-  <require rdf:resource="#Four_of_Hearts"/>
+  <require rdf:resource="#Queen_of_Hearts"/>
   <require rdf:resource="#King_of_Hearts"/>
+  <require rdf:resource="#Ten_of_Hearts"/>
+  <require rdf:resource="#Four_of_Spades"/>
+  <require rdf:resource="#Jack_of_Hearts"/>
+  <require rdf:resource="#Eight_of_Hearts"/>
+  <require rdf:resource="#King_of_Clubs"/>
+  <require rdf:resource="#Nine_of_Hearts"/>
+  <require rdf:resource="#Ace_of_Clubs"/>
+  <require rdf:resource="#Six_of_Hearts"/>
+  <require rdf:resource="#Jack_of_Clubs"/>
+  <require rdf:resource="#Seven_of_Hearts"/>
+  <require rdf:resource="#Queen_of_Clubs"/>
+  <require rdf:resource="#Four_of_Hearts"/>
+  <require rdf:resource="#Five_of_Hearts"/>
+  <require rdf:resource="#Two_of_Hearts"/>
+  <require rdf:resource="#Three_of_Hearts"/>
+  <require rdf:resource="#King_of_Spades"/>
+  <require rdf:resource="#Ace_of_Spades"/>
+  <require rdf:resource="#Jack_of_Spades"/>
+  <require rdf:resource="#Queen_of_Spades"/>
   <require rdf:resource="#Ten_of_Spades"/>
+  <require rdf:resource="#Ten_of_Clubs"/>
+  <require rdf:resource="#Eight_of_Clubs"/>
+  <require rdf:resource="#Nine_of_Spades"/>
+  <require rdf:resource="#Nine_of_Clubs"/>
+  <require rdf:resource="#Eight_of_Spades"/>
+  <require rdf:resource="#Five_of_Spades"/>
+  <require rdf:resource="#Six_of_Clubs"/>
+  <require rdf:resource="#Seven_of_Clubs"/>
+  <require rdf:resource="#Four_of_Clubs"/>
+  <require rdf:resource="#Five_of_Clubs"/>
+  <require rdf:resource="#Two_of_Clubs"/>
+  <require rdf:resource="#Three_of_Clubs"/>
+  <require rdf:resource="#Three_of_Spades"/>
+  <require rdf:resource="#King_of_Diamonds"/>
+  <require rdf:resource="#Seven_of_Spades"/>
+  <require rdf:resource="#Ace_of_Diamonds"/>
+  <require rdf:resource="#Six_of_Spades"/>
+  <require rdf:resource="#Jack_of_Diamonds"/>
+  <require rdf:resource="#Queen_of_Diamonds"/>
+  <require rdf:resource="#Nine_of_Diamonds"/>
+  <require rdf:resource="#Ten_of_Diamonds"/>
+  <require rdf:resource="#Seven_of_Diamonds"/>
+  <require rdf:resource="#Eight_of_Diamonds"/>
+  <require rdf:resource="#Five_of_Diamonds"/>
+  <require rdf:resource="#Six_of_Diamonds"/>
+  <require rdf:resource="#Three_of_Diamonds"/>
+  <require rdf:resource="#Two_of_Spades"/>
+  <require rdf:resource="#Four_of_Diamonds"/>
+  <played_by rdf:resource="#West"/>
+  <played_by rdf:resource="#South"/>
+  <played_by rdf:resource="#East"/>
+  <played_by rdf:resource="#North"/>
+  <watched_by rdf:resource="#kibitzer"/>
+  <watched_by rdf:resource="#fan"/>
 </CardGame>
 
 <Dice rdf:about="#dice_6">
@@ -1251,21 +1851,23 @@
 
 <Dice rdf:about="#dice_8">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <has_greater_number_than rdf:resource="#dice_6"/>
   <has_greater_number_than rdf:resource="#dice_12"/>
+  <has_greater_number_than rdf:resource="#dice_6"/>
   <has_sides rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</has_sides>
   <has_number rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</has_number>
 </Dice>
 
 <BoardGame rdf:about="#Backgammon">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <require rdf:resource="#dice_6"/>
   <rdf:type rdf:resource="#MultiPlayerGame"/>
+  <rdf:type rdf:resource="#DiceGame"/>
+  <require rdf:resource="#dice_6"/>
   <has_opponent rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</has_opponent>
 </BoardGame>
 
 <BoardGame rdf:about="#Catan">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdf:type rdf:resource="#MultiPlayerGame"/>
   <require rdf:resource="#MagicCard"/>
   <has_team rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</has_team>
 </BoardGame>
